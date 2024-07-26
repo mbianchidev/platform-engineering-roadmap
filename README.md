@@ -3,6 +3,8 @@
 An opinionated roadmap to become an Platform Engineer
 Inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap)
 
+![A picture from mbianchidev's Platform's Engineering Inferno talk from DevOps Days Amsterdam](platform-engineering-inferno.jpg)
+
 ## Individual 
 
 ### YAML
