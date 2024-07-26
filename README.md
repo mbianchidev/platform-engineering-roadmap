@@ -1,7 +1,7 @@
 # Plaform Engineering Roadmap
 
 An opinionated roadmap to become an Platform Engineer
-Inspired by https://github.com/teivah/sre-roadmap 
+Inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap)
 
 ## Individual 
 
@@ -54,18 +54,19 @@ Inspired by https://github.com/teivah/sre-roadmap
   * RabbitMQ
   * SQS
   * ActiveMQ
-  * Event log vs. message queue
+  * Event Log vs. Message Queue
   * _Load balancer_
-    * Concepts
+    * Load distribution concepts
     * Layer 4 vs. layer 7 load balancer
-  * _APIs_
+* _APIs_
     * Stateful vs. stateless
     * REST
     * Microservices: pros and cons
     * GraphQL
     * gRPC
-* Caching
-  * Redis
+* Caching and key-value stores
+  * etcd
+  * Valkey / Redis
   * Memcached
   * In-memory databases
 * CDN (Content Delivery Network)
@@ -75,8 +76,9 @@ Inspired by https://github.com/teivah/sre-roadmap
 * _Databases_
   * _Types of databases_
     * NoSQL vs. SQL databases
-    * Relational vs. document
-    * Column-oriented databases
+    * Relational vs. Document-based
+    * Column-oriented databases (OLAP)
+      * ClickHouse
     * Graph databases
     * Vector database
     * Objects-based storage
@@ -87,7 +89,7 @@ Inspired by https://github.com/teivah/sre-roadmap
 
 ### DevOps
 
-* _Concepts_
+* _DevOps Concepts_
   * Culture over tools
   * Feedback loops
   * Effective communication
@@ -115,6 +117,7 @@ Inspired by https://github.com/teivah/sre-roadmap
   * GitOps
     * ArgoCD
     * FluxCD
+    * Temporal.io
 * Infrastructure as Code
   * Configuration management
     * Ansible
@@ -266,11 +269,11 @@ Inspired by https://github.com/teivah/sre-roadmap
 ### Platform Engineering
 
 * _Concepts_
-  * Catalogs
-  * Self-service
-  * Automation
+  * Platform Catalog
+  * Self-service Platforms
   * Platform as a Product
   * DevEx (Developer Experience)
+  * Platform Market fit
   * UX
 * Internal Developer Platform
 
