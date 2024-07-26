@@ -97,6 +97,9 @@ Inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap)
   * Toolchain
   * Pipelines
   * Automated testing
+  * Infrastructure As Code
+    * OpenTofu
+    * Terraform
   * Everything as -Ops (NetOps, DBOps, DocOps...)
 * _Cloud_
   * SaaS
@@ -245,6 +248,7 @@ Inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap)
   * Persistent volumes and claims
   * CSI (Container Storage Interface)
   * CNI (Container Network Interface)
+    * Cilium
   * ClusterIP vs. NodePort vs. LoadBalancer
   * Network policies
   * Service accounts
