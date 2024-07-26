@@ -1,6 +1,8 @@
 # Plaform Engineering Roadmap
 
-An opinionated roadmap to become an Platform Engineer, this repo also contains a [Platform Engineering Manifesto](platform-engineering-manifesto.md)
+An opinionated roadmap to become an Platform Engineer.
+
+This repo also contains a [Platform Engineering Manifesto](platform-engineering-manifesto.md) which is playfully inspired by the Agile Manifesto.
 
 The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap)
 
