@@ -280,11 +280,13 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
 ### Platform Engineering
 
 * _Concepts_
+  * Internal Development Platform
   * Platform Catalog
   * Self-service Platforms
   * Platform as a Product
   * DevEx (Developer Experience)
   * Platform Market fit
+  * Platform ROI (Return On Investment)
   * UX
 * Internal Developer Platform
 
