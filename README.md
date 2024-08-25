@@ -258,8 +258,8 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
     * Cilium
   * ClusterIP vs. NodePort vs. LoadBalancer
   * Service Meshes
-   * Linkerd
-   * Istio
+    * Linkerd
+    * Istio
   * Network policies
   * Service accounts
   * RBAC (Role-based access control)
