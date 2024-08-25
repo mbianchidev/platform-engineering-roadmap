@@ -295,7 +295,15 @@ _Note: This repo also contains a [Platform Engineering Manifesto](platform-engin
   * DevEx (Developer Experience or UX for developers)
   * OMF (Platform Market Fit)
   * Platform ROI (Return On Investment)
-* Internal Developer Platform
+* Internal Developer Platforms
+  * Backstage _the OSS version is a builder of IDPs, not and IDP per se_
+  * Mia Platform
+  * Humanitec
+  * Port
+  * Portainer
+  * Upbound
+  * Northflank
+  * Qovery
 
 ### Soft skills
 
