@@ -83,7 +83,7 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
 * _Databases_
   * _Types of databases_
     * NoSQL vs. Relational databases
-     * MongoDB
+      * MongoDB
     * Relational vs. Document-based
     * Column-oriented databases (OLAP)
       * ClickHouse
