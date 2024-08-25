@@ -225,10 +225,9 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * Tags
   * OCI (Open Container Initiative)
   * Container registry
-  * Container runtime
+* Container runtime
   * Containerd
   * CRI-O (Container Runtime Interface - Orchestrator)
-* CNCF Landscape
 * Container orchestration
 * Kubernetes
   * Nodes
@@ -263,12 +262,12 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * Network policies
   * Service accounts
   * RBAC (Role-based access control)
-  * Container runtime
-  * Jobs
-  * CronJobs
-  * Horizontal Pod Autoscaler
-  * Vertical Pod Autoscaler
+  * Jobs & CronJobs
+  * HPA (Horizontal Pod Autoscaler)
+  * VPA (Vertical Pod Autoscaler)
   * Cluster Autoscaler
+  * Node scaling
+    * Karpenter
   * Pod Disruption Budgets
   * Resource quotas
   * Limit ranges
@@ -279,6 +278,7 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * Admission controllers
   * Operators
   * CRDs (Custom Resource Definitions)
+* CNCF Landscape
 
 ### Platform Engineering
 
