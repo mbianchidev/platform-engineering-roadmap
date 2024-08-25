@@ -9,7 +9,7 @@ In time, I want to create something similar to [roadmap.sh](https://roadmap.sh/)
 
 This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's Inferno - you can find a video [here](https://www.youtube.com/watch?v=dWn48x4v34Q).
 
-I want this roadmap to be useful to the largest amount of people and if you want to help be aware that any contribution matters, may that be an input or a feedback.
+I want this roadmap to be useful to the largest amount of people and if you want to help you are very welcome. Any contribution matters, may that be an input, a feedback or a PR.
 
 _Note: This repo also contains a [Platform Engineering Manifesto](platform-engineering-manifesto.md) which is playfully inspired by the Agile Manifesto._
 
