@@ -31,9 +31,9 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
 * Understand cgroups and resource utilization
 * Security (SELinux)
 * Package management
- * rip
- * yum
- * dnf
+  * rip
+  * yum
+  * dnf
 
 ### Network
 
