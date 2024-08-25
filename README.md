@@ -189,11 +189,11 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
 ### Security
 
 * Encryption
- * Algorithms
- * Certificates
- * TLS
- * PKI
- * Signatures
+  * Algorithms
+  * Certificates
+  * TLS
+  * PKI
+  * Signatures
 * Authentication
 * Authorization
 * IAM (Identity Access Management)
