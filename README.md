@@ -18,20 +18,22 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
 
 ### Programming
 
-* Programming languages (Python, Golang)
-* Version control
+* Programming languages (Python, Golang, Typescript) - _you don't necessarily need to be a master at these but it helps a ton_
+* Version control (Git)
 * SDKs
 
 ### Linux
 
-* Scripting
-* Filesystem
-* Memory
-* Processes
-* Resource utilization
-* Network
-* Security
+* Bash scripting
+* Navigating the filesystem
+* Understand and manipulate both RAM and disk
+* Understand and manipulate processes
+* Understand cgroups and resource utilization
+* Security (SELinux)
 * Package management
+ * rip
+ * yum
+ * dnf
 
 ### Network
 
@@ -42,19 +44,17 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * HTTPS
   * DNS
   * SSH
+* Navigate and troubleshoot network 
+ * DNS
+ * DHCP
+ * Firewall (Iptables)
 * ISO-OSI model
 * Network topologies
 * Discoverability
 * Load Balacing
-* Service Mesh
-  * Istio
-  * Consul
-  * Linkerd
-* Firewall
-* Proxy
-* Reverse-proxy
+* Proxy and reverse-proxy
 
-### Distributed systems
+### Distributed systems and datastores
 
 * _Queues_
   * Kafka
@@ -82,12 +82,13 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * Fastly
 * _Databases_
   * _Types of databases_
-    * NoSQL vs. SQL databases
+    * NoSQL vs. Relational databases
+     * MongoDB
     * Relational vs. Document-based
     * Column-oriented databases (OLAP)
       * ClickHouse
     * Graph databases
-    * Vector database
+    * Vector databases
     * Objects-based storage
   * ACID principles
   * Indexing
@@ -104,9 +105,6 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * Toolchain
   * Pipelines
   * Automated testing
-  * Infrastructure As Code
-    * OpenTofu
-    * Terraform
   * Everything as -Ops (NetOps, DBOps, DocOps...)
 * _Cloud_
   * SaaS
@@ -128,16 +126,17 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
     * ArgoCD
     * FluxCD
     * Temporal.io
-* Infrastructure as Code
+* IaC (Infrastructure as Code)
   * Configuration management
     * Ansible
     * Puppet
     * Chef
-  * Provisioning
-  * Open-Tofu
-  * Terraform
-  * Pulumi
-  * CloudFormation
+  * Provisioning and management
+   * Open-Tofu
+   * Terraform
+   * Pulumi
+   * CloudFormation (AWS proprietary)
+   * Bicep (Azure proprietary)
 * Cloud Providers
   * AWS
   * GCP
@@ -189,23 +188,23 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
 
 ### Security
 
+* Encryption
+ * Algorithms
+ * Certificates
+ * TLS
+ * PKI
+ * Signatures
+* Authentication
+* Authorization
+* IAM (Identity Access Management)
+  * OPA (Open Policy Agent)
 * DevSecOps
   * SAST
   * DAST
-* Authentication
-* Authorization
-* IAM
-* RBAC
-  * OPA (Open Policy Agent)
 * Container scanning
 * Threat detection
-* CNAPP
+* CNAPP (Cloud Native Application Protection Platform)
 * CDR
-* Certificates
-* Encryption
-* TLS
-* PKI
-* Signature
 
 ### Site Reliability
 
@@ -250,6 +249,7 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * Secrets
   * DaemonSets
   * Init containers & sidecar pattern
+  * eBPF and Kernel-level software
   * StatefulSets
   * Storage classes
   * Persistent volumes and claims
@@ -257,8 +257,12 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * CNI (Container Network Interface)
     * Cilium
   * ClusterIP vs. NodePort vs. LoadBalancer
+  * Service Meshes
+   * Linkerd
+   * Istio
   * Network policies
   * Service accounts
+  * RBAC (Role-based access control)
   * Container runtime
   * Jobs
   * CronJobs
@@ -272,35 +276,36 @@ This picture is from my DevOpsDay Amsterdam 2024 talk - Platform Engineering's I
   * Node affinity
   * Pod affinity vs pod anti-affinity
   * Pod security policies
-  * Role-based access control
   * Admission controllers
   * Operators
-  * Custom Resource Definitions
+  * CRDs (Custom Resource Definitions)
 
 ### Platform Engineering
 
 * _Concepts_
   * Internal Development Platform
+  * Platform Capability
   * Platform Catalog
+  * Golden Paths
   * Self-service Platforms
   * Platform as a Product
-  * DevEx (Developer Experience)
-  * Platform Market fit
+  * DevEx (Developer Experience or UX for developers)
+  * OMF (Platform Market Fit)
   * Platform ROI (Return On Investment)
-  * UX
 * Internal Developer Platform
 
 ### Soft skills
 
-* Being a nice person (no, really it's important)
+* Being a nice person to work with (no, really it's important)
 * _Communication_
-  * Writing
+  * Written
   * Oral
-  * Presentation
+  * Presentation skills
 * Collaboration
 * Problem solving
 * Curiosity
 * Navigating ambiguity
+* Blameless retrospectives
 
 ## Company
 
