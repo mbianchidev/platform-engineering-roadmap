@@ -94,6 +94,7 @@ _Note: This repo also contains a [Platform Engineering Manifesto](platform-engin
     * Vector databases
     * Objects-based storage
   * ACID principles
+  * CAP Theorem
   * Indexing
   * Transaction
   * Storage
