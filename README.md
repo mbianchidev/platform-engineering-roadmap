@@ -294,10 +294,10 @@ _Note: This repo also contains a [Platform Engineering Manifesto](platform-engin
   * Self-service Platforms
   * Platform as a Product
   * DevEx (Developer Experience or UX for developers)
-  * OMF (Platform Market Fit)
+  * PMF (Platform Market Fit)
   * Platform ROI (Return On Investment)
 * Internal Developer Platforms
-  * Backstage _the OSS version is a builder of IDPs, not and IDP per se_
+  * Backstage _the OSS version is a builder of IDPs, not a complete IDP per se_
   * Mia Platform
   * Humanitec
   * Port
