@@ -1,0 +1,57 @@
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.header-description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.header-note {
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+.header-note a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.header-note a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 3rem 0 2rem;
+  }
+  
+  .header-title {
+    font-size: 2rem;
+  }
+  
+  .header-description {
+    font-size: 1.125rem;
+  }
+}
