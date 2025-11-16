@@ -4,6 +4,7 @@ import { roadmapData } from './data/roadmapData'
 import Header from './components/Header'
 import RoadmapSection from './components/RoadmapSection'
 import Modal from './components/Modal'
+import Footer from './components/Footer'
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState(null)
@@ -29,6 +30,8 @@ function App() {
           />
         ))}
       </main>
+
+      <Footer />
 
       {selectedTopic && (
         <Modal

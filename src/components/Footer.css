@@ -1,0 +1,84 @@
+.footer {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 3rem 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-info {
+  text-align: center;
+}
+
+.footer-info p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.contribute-button {
+  background-color: white;
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.contribute-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--surface);
+}
+
+.contribute-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0;
+    margin-top: 3rem;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
+
+  .footer-info p {
+    font-size: 0.9375rem;
+  }
+
+  .contribute-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
