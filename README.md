@@ -5,6 +5,7 @@ An opinionated roadmap to become a Platform Engineer.
 Visit [https://mbianchidev.github.io/platform-engineering-roadmap](https://mbianchidev.github.io/platform-engineering-roadmap) to have an overview.
 
 The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap), but my idea is a bit different.
+
 In time, I created something similar to [roadmap.sh](https://roadmap.sh/) but for Platform Engineers.
 
 ## About me 
