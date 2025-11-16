@@ -1,10 +1,14 @@
 # Contributing to Platform Engineering Roadmap
 
-Thank you for your interest in contributing to the Platform Engineering Roadmap! 🎉
+Thank you for your interest in contributing to the Platform Engineering Roadmap!
+
+One rule: No vendor pitches allowed.
 
 ## How to Contribute
 
-I want this roadmap to be useful to the largest amount of people, and if you want to help, you are very welcome. Any contribution matters, whether that's an input, feedback, or even a PR.
+I want this roadmap to be useful to the largest amount of people, and if you want to help, you are very welcome. 
+
+Any contribution matters, whether that's an input, feedback, or even a PR.
 
 ## Ways to Contribute
 
@@ -62,3 +66,4 @@ Feel free to open an issue if you have any questions about contributing!
 ## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
+
