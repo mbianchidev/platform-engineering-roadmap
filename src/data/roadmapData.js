@@ -356,7 +356,7 @@ export const roadmapData = {
             { title: "Effective Communication", url: "https://www.skillsyouneed.com/ips/communication-skills.html" },
             { title: "Blameless Postmortems", url: "https://sre.google/sre-book/postmortem-culture/" },
             { title: "Technical Writing Guide", url: "https://developers.google.com/tech-writing" },
-            { title: "The Manager's Path", url: "https://www.oreilly.com/library/view/the-managers-path/9781491973882/" },
+            { title: "The Manager's Path (for aspiring engineering managers / platform leads)", url: "https://www.oreilly.com/library/view/the-managers-path/9781491973882/" },
             { title: "So Good They Can't Ignore You (Cal Newport)", url: "https://www.amazon.com/Good-They-Cant-Ignore-You/dp/1455509124" }
           ],
           subtopics: [
