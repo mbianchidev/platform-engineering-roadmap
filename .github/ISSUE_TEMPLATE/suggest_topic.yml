@@ -1,0 +1,81 @@
+name: Suggest New Topic
+description: Suggest a new topic to be added to the Platform Engineering Roadmap
+title: "[Topic]: "
+labels: ["enhancement", "topic-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to the Platform Engineering Roadmap!
+        Please fill out the form below to suggest a new topic.
+        Remember: No vendor pitches allowed.
+
+  - type: input
+    id: topic-title
+    attributes:
+      label: Topic Title
+      description: A short, descriptive title for the topic
+      placeholder: e.g., Service Mesh, FinOps, WebAssembly
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      description: Which section should this topic belong to?
+      options:
+        - Individual Skills
+        - Company Level
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the topic
+      placeholder: What is this topic about?
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Relevance to Platform Engineering
+      description: Explain why this topic is relevant to Platform Engineering
+      placeholder: Why should Platform Engineers learn about this?
+    validations:
+      required: true
+
+  - type: textarea
+    id: subtopics
+    attributes:
+      label: Subtopics (Optional)
+      description: List any subtopics that should be included under this topic
+      placeholder: |
+        - Subtopic 1
+        - Subtopic 2
+        - Subtopic 3
+    validations:
+      required: false
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resources (Optional)
+      description: Any helpful resources, documentation, or links related to this topic
+      placeholder: |
+        - [Resource Name](https://example.com)
+        - [Documentation](https://docs.example.com)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/mbianchidev/platform-engineering-roadmap/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
