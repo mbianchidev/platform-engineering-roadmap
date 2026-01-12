@@ -81,7 +81,6 @@ export const roadmapData = {
           description: "Networking protocols and infrastructure",
           content: "Network fundamentals, protocols, and troubleshooting for distributed systems. Networking knowledge is crucial for designing and debugging cloud-native applications.",
           links: [
-            { title: "TCP/IP Guide", url: "https://www.tcpipguide.com/" },
             { title: "HTTP/2 Specification", url: "https://tools.ietf.org/html/rfc7540" },
             { title: "HTTP/3 Explained", url: "https://http3-explained.haxx.se/" },
             { title: "Computer Networking Course (Free)", url: "https://www.youtube.com/playlist?list=PLEbnTDJUr_IegfoqO4iPnPYQui46QqT0j" },
@@ -357,9 +356,8 @@ export const roadmapData = {
             { title: "Effective Communication", url: "https://www.skillsyouneed.com/ips/communication-skills.html" },
             { title: "Blameless Postmortems", url: "https://sre.google/sre-book/postmortem-culture/" },
             { title: "Technical Writing Guide", url: "https://developers.google.com/tech-writing" },
-            { title: "Staff Engineer Book", url: "https://staffeng.com/book" },
             { title: "The Manager's Path", url: "https://www.oreilly.com/library/view/the-managers-path/9781491973882/" },
-            { title: "Radical Candor", url: "https://www.radicalcandor.com/" }
+            { title: "So Good They Can't Ignore You (Cal Newport)", url: "https://www.amazon.com/Good-They-Cant-Ignore-You/dp/1455509124" }
           ],
           subtopics: [
             { name: "Being a nice person to work with", description: "Interpersonal relationships matter" },
@@ -389,9 +387,8 @@ export const roadmapData = {
           content: "The Certified Cloud Native Platform Engineering Associate (CNPA) is CNCF's newest certification, specifically designed for platform engineers. It validates foundational skills in designing, building, and operating modern developer platforms in cloud-native environments. This vendor-neutral certification covers automation, security, observability, continuous delivery, platform APIs, and developer experience.",
           links: [
             { title: "CNCF CNPA Official Page", url: "https://www.cncf.io/training/certification/cnpa/" },
-            { title: "CNPA Curriculum", url: "https://github.com/cncf/curriculum" },
+            { title: "CNPA Curriculum", url: "https://github.com/cncf/curriculum/tree/master/cnpa" },
             { title: "Linux Foundation CNPA", url: "https://training.linuxfoundation.org/certification/certified-cloud-native-platform-engineering-associate-cnpa/" },
-            { title: "CNPA Study Guide", url: "https://training.linuxfoundation.org/blog/new-certification-certified-cloud-native-platform-engineering-associate-cnpa/" },
             { title: "Platform Engineering Resources (CNCF)", url: "https://tag-app-delivery.cncf.io/whitepapers/platforms/" }
           ],
           subtopics: [
@@ -483,8 +480,7 @@ export const roadmapData = {
           content: "Building a great platform is only half the battle - getting developers to adopt and love it requires product thinking, marketing, and continuous feedback.",
           links: [
             { title: "Platform as a Product (CNCF)", url: "https://tag-app-delivery.cncf.io/whitepapers/platforms/#platform-as-a-product" },
-            { title: "Developer Experience", url: "https://developerexperience.io/" },
-            { title: "Internal Marketing for Platforms", url: "https://www.thoughtworks.com/insights/blog/platform-engineering/internal-developer-platforms-product" }
+            { title: "Platform Engineering's Inferno (DevEx Talk)", url: "https://www.youtube.com/watch?v=y0VLubJKT5U" }
           ],
           subtopics: [
             { name: "Platform Marketing", description: "Internal communication and evangelism" },
