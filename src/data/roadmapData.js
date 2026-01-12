@@ -392,12 +392,12 @@ export const roadmapData = {
             { title: "Platform Engineering Resources (CNCF)", url: "https://tag-app-delivery.cncf.io/whitepapers/platforms/" }
           ],
           subtopics: [
-            { name: "Platform Engineering Core Fundamentals (36%)", description: "Core concepts, platform thinking, and architecture" },
-            { name: "Observability, Security & Conformance (20%)", description: "Monitoring, security practices, and compliance" },
-            { name: "Continuous Delivery & Platform Engineering (16%)", description: "CI/CD, GitOps, and deployment strategies" },
-            { name: "Platform APIs & Infrastructure Provisioning (12%)", description: "API design and IaC practices" },
-            { name: "IDPs & Developer Experience (8%)", description: "Internal Developer Platforms and DevEx" },
-            { name: "Measuring Your Platform (8%)", description: "DORA metrics and platform success metrics" }
+            { name: "Platform Engineering Core Fundamentals", description: "Core concepts, platform thinking, and architecture" },
+            { name: "Observability, Security & Conformance", description: "Monitoring, security practices, and compliance" },
+            { name: "Continuous Delivery & Platform Engineering", description: "CI/CD, GitOps, and deployment strategies" },
+            { name: "Platform APIs & Infrastructure Provisioning", description: "API design and IaC practices" },
+            { name: "IDPs & Developer Experience", description: "Internal Developer Platforms and DevEx" },
+            { name: "Measuring Your Platform", description: "DORA metrics and platform success metrics" }
           ]
         },
         {
