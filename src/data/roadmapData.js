@@ -326,11 +326,10 @@ export const roadmapData = {
           description: "Platform engineering concepts and internal developer platforms",
           content: "Platform engineering practices, Internal Developer Platforms, and developer experience. This is the culmination of all skills, applying product thinking to infrastructure.",
           links: [
-            { title: "Platform Engineering", url: "https://platformengineering.org/" },
             { title: "CNCF Platform White Paper", url: "https://tag-app-delivery.cncf.io/whitepapers/platforms/" },
+            { title: "Platform Engineering Maturity Model", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/" },
             { title: "Backstage", url: "https://backstage.io/" },
             { title: "Team Topologies", url: "https://teamtopologies.com/" },
-            { title: "Platform Engineering Maturity Model", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/" },
             { title: "Internal Developer Portal Guide", url: "https://internaldeveloperplatform.org/" },
             { title: "DevEx Paper (DX)", url: "https://queue.acm.org/detail.cfm?id=3595878" }
           ],
@@ -483,7 +482,7 @@ export const roadmapData = {
           description: "Strategies for successful platform adoption",
           content: "Building a great platform is only half the battle - getting developers to adopt and love it requires product thinking, marketing, and continuous feedback.",
           links: [
-            { title: "Platform as a Product", url: "https://platformengineering.org/blog/what-is-platform-as-a-product" },
+            { title: "Platform as a Product (CNCF)", url: "https://tag-app-delivery.cncf.io/whitepapers/platforms/#platform-as-a-product" },
             { title: "Developer Experience", url: "https://developerexperience.io/" },
             { title: "Internal Marketing for Platforms", url: "https://www.thoughtworks.com/insights/blog/platform-engineering/internal-developer-platforms-product" }
           ],
@@ -505,7 +504,7 @@ export const roadmapData = {
             { title: "DORA Metrics", url: "https://dora.dev/" },
             { title: "SPACE Framework", url: "https://queue.acm.org/detail.cfm?id=3454124" },
             { title: "Developer Productivity", url: "https://martinfowler.com/bliki/CannotMeasureProductivity.html" },
-            { title: "Platform Metrics Guide", url: "https://platformengineering.org/blog/how-to-measure-platform-engineering" }
+            { title: "CNCF Platform Maturity Model", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/" }
           ],
           subtopics: [
             { name: "DORA Metrics", description: "Deployment frequency, lead time, MTTR, change failure rate" },
