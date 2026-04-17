@@ -14,3 +14,12 @@ updates:
         applies-to: version-updates
         patterns:
           - "*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      all-actions:
+        applies-to: version-updates
+        patterns:
+          - "*"
