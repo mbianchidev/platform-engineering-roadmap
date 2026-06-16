@@ -285,6 +285,75 @@ export const roadmapData = {
           ]
         },
         {
+          id: "ai-ml-fundamentals",
+          title: "AI & ML Fundamentals",
+          description: "AI and machine learning basics for platform and SRE work",
+          content: "AI and ML are becoming part of operational tooling, incident response, capacity planning, developer experience, and platform automation. Platform engineers do not need to become research scientists, but they should understand enough to evaluate models, data, risks, and failure modes.",
+          links: [
+            { title: "Google Machine Learning Crash Course", url: "https://developers.google.com/machine-learning/crash-course" },
+            { title: "Hugging Face Learn", url: "https://huggingface.co/learn" },
+            { title: "Full Stack Deep Learning", url: "https://fullstackdeeplearning.com/" },
+            { title: "Made With ML", url: "https://madewithml.com/" },
+            { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework" }
+          ],
+          subtopics: [
+            { name: "ML fundamentals", description: "Supervised learning, unsupervised learning, model training, inference, and evaluation" },
+            { name: "LLM fundamentals", description: "Tokens, context windows, embeddings, temperature, latency, and cost trade-offs" },
+            { name: "Data quality", description: "Freshness, labeling, bias, drift, and noisy operational data" },
+            { name: "Feature engineering", description: "Turning telemetry, incidents, deploys, and topology into model-ready signals" },
+            { name: "Model evaluation", description: "Precision, recall, hallucination checks, regression tests, and human review" },
+            { name: "MLOps basics", description: "Model lifecycle, versioning, deployment, monitoring, rollback, and governance" },
+            { name: "Responsible AI", description: "Privacy, security, explainability, fairness, and safe failure modes" }
+          ]
+        },
+        {
+          id: "ai-for-sre",
+          title: "AI for SRE",
+          description: "Using AI and ML to improve reliability work",
+          content: "AI for SRE is about augmenting humans, not hiding system behavior behind magic. The useful path is better signal extraction, faster context gathering, safer remediation suggestions, and continuous learning from incidents, deploys, telemetry, and runbooks.",
+          links: [
+            { title: "Google SRE Books", url: "https://sre.google/books/" },
+            { title: "OpenTelemetry Documentation", url: "https://opentelemetry.io/docs/" },
+            { title: "Prometheus Alerting Best Practices", url: "https://prometheus.io/docs/practices/alerting/" },
+            { title: "Grafana Machine Learning", url: "https://grafana.com/docs/grafana-cloud/alerting-and-irm/machine-learning/" },
+            { title: "AIOps Foundation", url: "https://www.cncf.io/blog/2023/11/06/aiops-cloud-native-ai-machine-learning-operations/" }
+          ],
+          subtopics: [
+            { name: "Anomaly detection", description: "Detecting unusual metric, log, trace, and event patterns without paging on noise" },
+            { name: "Alert correlation", description: "Grouping related symptoms by service, dependency, deploy, topology, and time window" },
+            { name: "Incident summarization", description: "Creating timelines, impact summaries, suspected causes, and handoff notes" },
+            { name: "Root cause assistance", description: "Suggesting likely causes while preserving evidence and operator judgment" },
+            { name: "Capacity forecasting", description: "Predicting saturation, traffic growth, resource needs, and seasonal behavior" },
+            { name: "Change risk scoring", description: "Using deploy metadata, ownership, blast radius, and past incidents to guide rollout safety" },
+            { name: "Runbook recommendation", description: "Finding relevant runbooks, dashboards, traces, commits, and ownership context" },
+            { name: "Post-incident learning", description: "Extracting follow-ups, recurring patterns, and reliability investments from reviews" }
+          ]
+        },
+        {
+          id: "ai-agents-platform-work",
+          title: "AI Agents for Platform Work",
+          description: "Agentic workflows for safe platform automation",
+          content: "AI agents can help platform teams by planning, querying tools, changing configuration, opening pull requests, and coordinating workflows. Treat them like powerful automation: give them narrow permissions, observable actions, clear approval gates, and tests before production impact.",
+          links: [
+            { title: "Model Context Protocol", url: "https://modelcontextprotocol.io/" },
+            { title: "OpenAI Agents SDK", url: "https://openai.github.io/openai-agents-python/" },
+            { title: "LangGraph", url: "https://langchain-ai.github.io/langgraph/" },
+            { title: "OWASP Top 10 for LLM Applications", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
+            { title: "Backstage", url: "https://backstage.io/" }
+          ],
+          subtopics: [
+            { name: "Tool-calling agents", description: "Connecting agents to tickets, repos, observability, cloud APIs, CI/CD, and runbooks" },
+            { name: "Retrieval-augmented generation", description: "Grounding answers in service catalogs, docs, incidents, diagrams, and ownership data" },
+            { name: "Agent workflows", description: "Plan, act, observe, review, and escalate loops for operational tasks" },
+            { name: "Human-in-the-loop controls", description: "Approval gates for production changes, access requests, rollbacks, and remediation" },
+            { name: "Agent observability", description: "Tracing prompts, tool calls, decisions, outputs, latency, cost, and failure modes" },
+            { name: "Evaluation and testing", description: "Golden tasks, simulation, red-team prompts, replayed incidents, and regression suites" },
+            { name: "Least privilege access", description: "Scoped credentials, temporary tokens, sandboxed execution, and policy enforcement" },
+            { name: "Platform copilots", description: "Self-service assistants for golden paths, templates, onboarding, and troubleshooting" },
+            { name: "Autonomous remediation", description: "Starting with low-risk actions before guarded production changes" }
+          ]
+        },
+        {
           id: "cloud-native",
           title: "Cloud Native",
           description: "Containers, Kubernetes, and cloud-native technologies",
