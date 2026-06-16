@@ -1,6 +1,6 @@
-# Plaform Engineering Roadmap
+# Platform Engineering Roadmap
 
-An opinionated roadmap to become a Platform Engineer.
+An opinionated roadmap to become a Platform Engineer, including AI, ML, and AI agent practices for SRE and platform work.
 
 Visit [https://mbianchidev.github.io/platform-engineering-roadmap](https://mbianchidev.github.io/platform-engineering-roadmap) to have an overview.
 

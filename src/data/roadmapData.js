@@ -285,6 +285,75 @@ export const roadmapData = {
           ]
         },
         {
+          id: "ai-ml-fundamentals",
+          title: "AI & ML Fundamentals",
+          description: "AI and machine learning basics for platform and SRE work",
+          content: "AI and ML are becoming part of operational tooling, incident response, capacity planning, developer experience, and platform automation. Platform engineers do not need to become research scientists, but they should understand enough to evaluate models, data, risks, and failure modes.",
+          links: [
+            { title: "Google Machine Learning Crash Course", url: "https://developers.google.com/machine-learning/crash-course" },
+            { title: "Hugging Face Learn", url: "https://huggingface.co/learn" },
+            { title: "Full Stack Deep Learning", url: "https://fullstackdeeplearning.com/" },
+            { title: "Made With ML", url: "https://madewithml.com/" },
+            { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework" }
+          ],
+          subtopics: [
+            { name: "ML fundamentals", description: "Supervised learning, unsupervised learning, model training, inference, and evaluation" },
+            { name: "LLM fundamentals", description: "Tokens, context windows, embeddings, temperature, latency, and cost trade-offs" },
+            { name: "Data quality", description: "Freshness, labeling, bias, drift, and noisy operational data" },
+            { name: "Feature engineering", description: "Turning telemetry, incidents, deploys, and topology into model-ready signals" },
+            { name: "Model evaluation", description: "Precision, recall, hallucination checks, regression tests, and human review" },
+            { name: "MLOps basics", description: "Model lifecycle, versioning, deployment, monitoring, rollback, and governance" },
+            { name: "Responsible AI", description: "Privacy, security, explainability, fairness, and safe failure modes" }
+          ]
+        },
+        {
+          id: "ai-for-sre",
+          title: "AI for SRE",
+          description: "Using AI and ML to improve reliability work",
+          content: "AI for SRE is about augmenting humans, not hiding system behavior behind magic. The useful path is better signal extraction, faster context gathering, safer remediation suggestions, and continuous learning from incidents, deploys, telemetry, and runbooks.",
+          links: [
+            { title: "Google SRE Books", url: "https://sre.google/books/" },
+            { title: "OpenTelemetry Documentation", url: "https://opentelemetry.io/docs/" },
+            { title: "Prometheus Alerting Best Practices", url: "https://prometheus.io/docs/practices/alerting/" },
+            { title: "Grafana Machine Learning", url: "https://grafana.com/docs/grafana-cloud/alerting-and-irm/machine-learning/" },
+            { title: "AIOps Foundation", url: "https://www.cncf.io/blog/2023/11/06/aiops-cloud-native-ai-machine-learning-operations/" }
+          ],
+          subtopics: [
+            { name: "Anomaly detection", description: "Detecting unusual metric, log, trace, and event patterns without paging on noise" },
+            { name: "Alert correlation", description: "Grouping related symptoms by service, dependency, deploy, topology, and time window" },
+            { name: "Incident summarization", description: "Creating timelines, impact summaries, suspected causes, and handoff notes" },
+            { name: "Root cause assistance", description: "Suggesting likely causes while preserving evidence and operator judgment" },
+            { name: "Capacity forecasting", description: "Predicting saturation, traffic growth, resource needs, and seasonal behavior" },
+            { name: "Change risk scoring", description: "Using deploy metadata, ownership, blast radius, and past incidents to guide rollout safety" },
+            { name: "Runbook recommendation", description: "Finding relevant runbooks, dashboards, traces, commits, and ownership context" },
+            { name: "Post-incident learning", description: "Extracting follow-ups, recurring patterns, and reliability investments from reviews" }
+          ]
+        },
+        {
+          id: "ai-agents-platform-work",
+          title: "AI Agents for Platform Work",
+          description: "Agentic workflows for safe platform automation",
+          content: "AI agents can help platform teams by planning, querying tools, changing configuration, opening pull requests, and coordinating workflows. Treat them like powerful automation: give them narrow permissions, observable actions, clear approval gates, and tests before production impact.",
+          links: [
+            { title: "Model Context Protocol", url: "https://modelcontextprotocol.io/" },
+            { title: "OpenAI Agents SDK", url: "https://github.com/openai/openai-agents-python" },
+            { title: "LangGraph", url: "https://langchain-ai.github.io/langgraph/" },
+            { title: "OWASP Top 10 for LLM Applications", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
+            { title: "Backstage", url: "https://backstage.io/" }
+          ],
+          subtopics: [
+            { name: "Tool-calling agents", description: "Connecting agents to tickets, repos, observability, cloud APIs, CI/CD, and runbooks" },
+            { name: "Retrieval-augmented generation", description: "Grounding answers in service catalogs, docs, incidents, diagrams, and ownership data" },
+            { name: "Agent workflows", description: "Plan, act, observe, review, and escalate loops for operational tasks" },
+            { name: "Human-in-the-loop controls", description: "Approval gates for production changes, access requests, rollbacks, and remediation" },
+            { name: "Agent observability", description: "Tracing prompts, tool calls, decisions, outputs, latency, cost, and failure modes" },
+            { name: "Evaluation and testing", description: "Golden tasks, simulation, red-team prompts, replayed incidents, and regression suites" },
+            { name: "Least privilege access", description: "Scoped credentials, temporary tokens, sandboxed execution, and policy enforcement" },
+            { name: "Platform copilots", description: "Self-service assistants for golden paths, templates, onboarding, and troubleshooting" },
+            { name: "Autonomous remediation", description: "Starting with low-risk actions before guarded production changes" }
+          ]
+        },
+        {
           id: "cloud-native",
           title: "Cloud Native",
           description: "Containers, Kubernetes, and cloud-native technologies",
@@ -509,6 +578,93 @@ export const roadmapData = {
             { name: "Developer Satisfaction", description: "NPS and developer surveys" },
             { name: "Time to First Deploy", description: "Onboarding efficiency metric" },
             { name: "Self-Service Ratio", description: "Automation vs manual requests" }
+          ]
+        },
+        {
+          id: "ai-adoption-strategy",
+          title: "AI Adoption Strategy",
+          description: "Company strategy for adopting AI in platform and SRE teams",
+          content: "AI adoption should be treated like a product and operating model change, not just a tooling rollout. Companies need clear use cases, responsible experimentation, enablement, and metrics that prove AI improves reliability, developer experience, and platform outcomes.",
+          links: [
+            { title: "People + AI Guidebook", url: "https://pair.withgoogle.com/guidebook/" },
+            { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework" },
+            { title: "OECD AI Principles", url: "https://oecd.ai/en/ai-principles" },
+            { title: "DORA Metrics", url: "https://dora.dev/" },
+            { title: "Platform Engineering Maturity Model", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/" }
+          ],
+          subtopics: [
+            { name: "Use-case portfolio", description: "Prioritizing incident response, support, onboarding, docs, capacity, and toil reduction opportunities" },
+            { name: "Build vs buy decisions", description: "Choosing between vendor copilots, internal agents, open source models, and custom workflows" },
+            { name: "Pilot programs", description: "Running small experiments with clear success criteria and production-safe boundaries" },
+            { name: "AI literacy", description: "Teaching teams prompt patterns, model limits, data handling, and review expectations" },
+            { name: "Change management", description: "Rolling out AI workflows with champions, feedback loops, and transparent communication" },
+            { name: "Outcome metrics", description: "Measuring reliability impact, adoption, time saved, quality, satisfaction, and risk reduction" }
+          ]
+        },
+        {
+          id: "ai-governance-risk",
+          title: "AI Governance & Risk",
+          description: "Responsible AI controls for operational and platform workflows",
+          content: "AI governance gives teams confidence to use AI without creating hidden security, privacy, compliance, or reliability risks. For platform and SRE work, governance must cover data access, model behavior, approvals, auditability, and safe failure modes.",
+          links: [
+            { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework" },
+            { title: "OWASP Top 10 for LLM Applications", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
+            { title: "ISO/IEC 42001 AI Management System", url: "https://www.iso.org/standard/81230.html" },
+            { title: "Responsible AI Standard", url: "https://www.microsoft.com/ai/responsible-ai" },
+            { title: "SLSA Supply Chain Security", url: "https://slsa.dev/" }
+          ],
+          subtopics: [
+            { name: "Data classification", description: "Defining which telemetry, code, incidents, tickets, and customer data can be used by AI systems" },
+            { name: "Access boundaries", description: "Applying least privilege, scoped tools, temporary credentials, and tenant isolation" },
+            { name: "Human approvals", description: "Requiring review for production changes, destructive actions, secrets, and customer-impacting workflows" },
+            { name: "Audit trails", description: "Recording prompts, retrieved context, tool calls, approvals, actions, and outputs" },
+            { name: "Vendor and model risk", description: "Evaluating retention policies, data residency, model updates, SLAs, and exit plans" },
+            { name: "Policy as code", description: "Encoding AI usage policies into gateways, CI checks, admission controls, and platform APIs" },
+            { name: "Incident response for AI", description: "Handling prompt injection, data leakage, unsafe actions, hallucinations, and model outages" }
+          ]
+        },
+        {
+          id: "operational-knowledge-data",
+          title: "Operational Knowledge & Data",
+          description: "Making company knowledge usable by AI and humans",
+          content: "AI quality depends on the quality of the company's operational knowledge. Service ownership, runbooks, architecture, incidents, telemetry, and deployment data need to be accurate, searchable, governed, and connected before AI can reliably help platform and SRE teams.",
+          links: [
+            { title: "Backstage Software Catalog", url: "https://backstage.io/docs/features/software-catalog/" },
+            { title: "OpenTelemetry", url: "https://opentelemetry.io/" },
+            { title: "Google SRE Workbook", url: "https://sre.google/workbook/table-of-contents/" },
+            { title: "Diataxis Documentation Framework", url: "https://diataxis.fr/" },
+            { title: "OpenAPI Specification", url: "https://www.openapis.org/" }
+          ],
+          subtopics: [
+            { name: "Service catalog quality", description: "Maintaining ownership, dependencies, lifecycle, SLOs, repos, dashboards, and runbooks" },
+            { name: "Runbook hygiene", description: "Keeping procedures current, tested, searchable, and linked to alerts and services" },
+            { name: "Telemetry standards", description: "Standardizing labels, resource attributes, trace context, log fields, and event schemas" },
+            { name: "Incident knowledge base", description: "Structuring postmortems, timelines, follow-ups, impact, and recurring failure modes" },
+            { name: "Architecture knowledge", description: "Capturing diagrams, ADRs, ownership boundaries, dependencies, and data flows" },
+            { name: "Retrieval readiness", description: "Preparing docs and metadata for indexing, chunking, permissions, freshness, and citations" },
+            { name: "Data ownership", description: "Assigning stewards for operational datasets, retention, quality, and access policies" }
+          ]
+        },
+        {
+          id: "agentic-operating-model",
+          title: "Agentic Operating Model",
+          description: "How companies safely operate AI agents at scale",
+          content: "AI agents need an operating model before they become part of critical platform workflows. Companies should define where agents are allowed to act, how they are evaluated, who owns them, how failures are handled, and when humans stay in control.",
+          links: [
+            { title: "Model Context Protocol", url: "https://modelcontextprotocol.io/" },
+            { title: "OWASP Agentic AI Threats and Mitigations", url: "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/" },
+            { title: "Team Topologies", url: "https://teamtopologies.com/" },
+            { title: "Open Policy Agent", url: "https://www.openpolicyagent.org/" },
+            { title: "OpenTelemetry", url: "https://opentelemetry.io/" }
+          ],
+          subtopics: [
+            { name: "Agent ownership", description: "Defining accountable teams, escalation paths, lifecycle, documentation, and support model" },
+            { name: "Permission tiers", description: "Separating read-only agents, PR-generating agents, approval-required agents, and break-glass automation" },
+            { name: "Workflow boundaries", description: "Choosing which tasks are assistive, semi-autonomous, or never autonomous" },
+            { name: "Evaluation program", description: "Testing agents with golden tasks, replayed incidents, simulations, and adversarial scenarios" },
+            { name: "Operational controls", description: "Rate limits, budgets, kill switches, rollback plans, and dependency health checks" },
+            { name: "Agent observability", description: "Monitoring tool calls, latency, cost, drift, errors, policy denials, and user feedback" },
+            { name: "Continuous improvement", description: "Reviewing agent outcomes, missed cases, escalations, and user trust over time" }
           ]
         }
       ]
