@@ -336,7 +336,7 @@ export const roadmapData = {
           content: "AI agents can help platform teams by planning, querying tools, changing configuration, opening pull requests, and coordinating workflows. Treat them like powerful automation: give them narrow permissions, observable actions, clear approval gates, and tests before production impact.",
           links: [
             { title: "Model Context Protocol", url: "https://modelcontextprotocol.io/" },
-            { title: "OpenAI Agents SDK", url: "https://openai.github.io/openai-agents-python/" },
+            { title: "OpenAI Agents SDK", url: "https://github.com/openai/openai-agents-python" },
             { title: "LangGraph", url: "https://langchain-ai.github.io/langgraph/" },
             { title: "OWASP Top 10 for LLM Applications", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
             { title: "Backstage", url: "https://backstage.io/" }
