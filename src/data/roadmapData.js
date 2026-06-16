@@ -579,6 +579,93 @@ export const roadmapData = {
             { name: "Time to First Deploy", description: "Onboarding efficiency metric" },
             { name: "Self-Service Ratio", description: "Automation vs manual requests" }
           ]
+        },
+        {
+          id: "ai-adoption-strategy",
+          title: "AI Adoption Strategy",
+          description: "Company strategy for adopting AI in platform and SRE teams",
+          content: "AI adoption should be treated like a product and operating model change, not just a tooling rollout. Companies need clear use cases, responsible experimentation, enablement, and metrics that prove AI improves reliability, developer experience, and platform outcomes.",
+          links: [
+            { title: "People + AI Guidebook", url: "https://pair.withgoogle.com/guidebook/" },
+            { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework" },
+            { title: "OECD AI Principles", url: "https://oecd.ai/en/ai-principles" },
+            { title: "DORA Metrics", url: "https://dora.dev/" },
+            { title: "Platform Engineering Maturity Model", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/" }
+          ],
+          subtopics: [
+            { name: "Use-case portfolio", description: "Prioritizing incident response, support, onboarding, docs, capacity, and toil reduction opportunities" },
+            { name: "Build vs buy decisions", description: "Choosing between vendor copilots, internal agents, open source models, and custom workflows" },
+            { name: "Pilot programs", description: "Running small experiments with clear success criteria and production-safe boundaries" },
+            { name: "AI literacy", description: "Teaching teams prompt patterns, model limits, data handling, and review expectations" },
+            { name: "Change management", description: "Rolling out AI workflows with champions, feedback loops, and transparent communication" },
+            { name: "Outcome metrics", description: "Measuring reliability impact, adoption, time saved, quality, satisfaction, and risk reduction" }
+          ]
+        },
+        {
+          id: "ai-governance-risk",
+          title: "AI Governance & Risk",
+          description: "Responsible AI controls for operational and platform workflows",
+          content: "AI governance gives teams confidence to use AI without creating hidden security, privacy, compliance, or reliability risks. For platform and SRE work, governance must cover data access, model behavior, approvals, auditability, and safe failure modes.",
+          links: [
+            { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework" },
+            { title: "OWASP Top 10 for LLM Applications", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
+            { title: "ISO/IEC 42001 AI Management System", url: "https://www.iso.org/standard/81230.html" },
+            { title: "Responsible AI Standard", url: "https://www.microsoft.com/ai/responsible-ai" },
+            { title: "SLSA Supply Chain Security", url: "https://slsa.dev/" }
+          ],
+          subtopics: [
+            { name: "Data classification", description: "Defining which telemetry, code, incidents, tickets, and customer data can be used by AI systems" },
+            { name: "Access boundaries", description: "Applying least privilege, scoped tools, temporary credentials, and tenant isolation" },
+            { name: "Human approvals", description: "Requiring review for production changes, destructive actions, secrets, and customer-impacting workflows" },
+            { name: "Audit trails", description: "Recording prompts, retrieved context, tool calls, approvals, actions, and outputs" },
+            { name: "Vendor and model risk", description: "Evaluating retention policies, data residency, model updates, SLAs, and exit plans" },
+            { name: "Policy as code", description: "Encoding AI usage policies into gateways, CI checks, admission controls, and platform APIs" },
+            { name: "Incident response for AI", description: "Handling prompt injection, data leakage, unsafe actions, hallucinations, and model outages" }
+          ]
+        },
+        {
+          id: "operational-knowledge-data",
+          title: "Operational Knowledge & Data",
+          description: "Making company knowledge usable by AI and humans",
+          content: "AI quality depends on the quality of the company's operational knowledge. Service ownership, runbooks, architecture, incidents, telemetry, and deployment data need to be accurate, searchable, governed, and connected before AI can reliably help platform and SRE teams.",
+          links: [
+            { title: "Backstage Software Catalog", url: "https://backstage.io/docs/features/software-catalog/" },
+            { title: "OpenTelemetry", url: "https://opentelemetry.io/" },
+            { title: "Google SRE Workbook", url: "https://sre.google/workbook/table-of-contents/" },
+            { title: "Diataxis Documentation Framework", url: "https://diataxis.fr/" },
+            { title: "OpenAPI Specification", url: "https://www.openapis.org/" }
+          ],
+          subtopics: [
+            { name: "Service catalog quality", description: "Maintaining ownership, dependencies, lifecycle, SLOs, repos, dashboards, and runbooks" },
+            { name: "Runbook hygiene", description: "Keeping procedures current, tested, searchable, and linked to alerts and services" },
+            { name: "Telemetry standards", description: "Standardizing labels, resource attributes, trace context, log fields, and event schemas" },
+            { name: "Incident knowledge base", description: "Structuring postmortems, timelines, follow-ups, impact, and recurring failure modes" },
+            { name: "Architecture knowledge", description: "Capturing diagrams, ADRs, ownership boundaries, dependencies, and data flows" },
+            { name: "Retrieval readiness", description: "Preparing docs and metadata for indexing, chunking, permissions, freshness, and citations" },
+            { name: "Data ownership", description: "Assigning stewards for operational datasets, retention, quality, and access policies" }
+          ]
+        },
+        {
+          id: "agentic-operating-model",
+          title: "Agentic Operating Model",
+          description: "How companies safely operate AI agents at scale",
+          content: "AI agents need an operating model before they become part of critical platform workflows. Companies should define where agents are allowed to act, how they are evaluated, who owns them, how failures are handled, and when humans stay in control.",
+          links: [
+            { title: "Model Context Protocol", url: "https://modelcontextprotocol.io/" },
+            { title: "OWASP Agentic AI Threats and Mitigations", url: "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/" },
+            { title: "Team Topologies", url: "https://teamtopologies.com/" },
+            { title: "Open Policy Agent", url: "https://www.openpolicyagent.org/" },
+            { title: "OpenTelemetry", url: "https://opentelemetry.io/" }
+          ],
+          subtopics: [
+            { name: "Agent ownership", description: "Defining accountable teams, escalation paths, lifecycle, documentation, and support model" },
+            { name: "Permission tiers", description: "Separating read-only agents, PR-generating agents, approval-required agents, and break-glass automation" },
+            { name: "Workflow boundaries", description: "Choosing which tasks are assistive, semi-autonomous, or never autonomous" },
+            { name: "Evaluation program", description: "Testing agents with golden tasks, replayed incidents, simulations, and adversarial scenarios" },
+            { name: "Operational controls", description: "Rate limits, budgets, kill switches, rollback plans, and dependency health checks" },
+            { name: "Agent observability", description: "Monitoring tool calls, latency, cost, drift, errors, policy denials, and user feedback" },
+            { name: "Continuous improvement", description: "Reviewing agent outcomes, missed cases, escalations, and user trust over time" }
+          ]
         }
       ]
     }
