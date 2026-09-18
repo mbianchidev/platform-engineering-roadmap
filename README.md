@@ -2,7 +2,7 @@
 
 An opinionated roadmap to become a Platform Engineer, including AI, ML, and AI agent practices for SRE and platform work.
 
-Visit [https://mbianchidev.github.io/platform-engineering-roadmap](https://mbianchidev.github.io/platform-engineering-roadmap) to have an overview.
+Visit [https://platform-engineering-roadmap.mbianchi.dev/](https://platform-engineering-roadmap.mbianchi.dev/) to have an overview.
 
 The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap), but my idea is a bit different.
 
@@ -27,6 +27,10 @@ _Note: This repo also contains a [Platform Engineering Manifesto](platform-engin
 I want this roadmap to be useful to the largest amount of people and if you want to help you are very welcome. 
 
 Any contribution matters, may that be an input, a feedback or even a PR.
+
+## Deployment
+
+The site is deployed to GitHub Pages from `main` by [the Pages workflow](.github/workflows/deploy.yml). The custom domain is declared in [`public/CNAME`](public/CNAME), and Vite builds root-relative asset URLs because the site is served from the custom domain root.
 
 ## License
 
