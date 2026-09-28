@@ -1,14 +1,12 @@
 import './Footer.css'
+import { ExternalLinkIcon } from './Icons'
 
 const Footer = () => {
-  const handleContributeClick = () => {
-    window.open('https://github.com/mbianchidev/platform-engineering-roadmap/blob/main/CONTRIBUTING.md', '_blank', 'noopener,noreferrer')
-  }
-
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-info">
+          <p className="footer-note">We, platform engineers, just do the work</p>
           <p>
             Made with platform engineering knowledge by{' '}
             <a 
@@ -22,12 +20,14 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer-actions">
-          <button 
-            onClick={handleContributeClick}
+          <a
+            href="https://github.com/mbianchidev/platform-engineering-roadmap/blob/main/CONTRIBUTING.md"
+            target="_blank"
+            rel="noopener noreferrer"
             className="contribute-button"
           >
-            Contribute a topic
-          </button>
+            Contribute a topic<ExternalLinkIcon />
+          </a>
         </div>
       </div>
     </footer>

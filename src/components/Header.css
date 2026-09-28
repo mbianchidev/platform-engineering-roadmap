@@ -1,57 +1,90 @@
 .header {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  color: white;
-  padding: 4rem 0 3rem;
-  text-align: center;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
 }
 
 .header-content {
-  max-width: 800px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.header-title {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
+.header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
 }
 
-.header-description {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-  font-weight: 300;
+.header-brand img {
+  flex-shrink: 0;
 }
 
-.header-note {
-  opacity: 0.8;
-  font-size: 0.875rem;
+.brand-subtitle {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
-.header-note a {
-  color: white;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s ease;
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.8125rem;
+  font-weight: 600;
 }
 
-.header-note a:hover {
-  opacity: 0.8;
+.header-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--text-secondary);
 }
 
-@media (max-width: 768px) {
-  .header {
-    padding: 3rem 0 2rem;
+.header-links a:hover {
+  color: var(--primary-color);
+}
+
+.header-links .contribute-link {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+}
+
+.contribute-link:hover {
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 900px) {
+  .header-content {
+    padding-inline: 28px;
   }
-  
-  .header-title {
-    font-size: 2rem;
+}
+
+@media (max-width: 580px) {
+  .header-content {
+    padding: 16px 20px;
+    gap: 16px;
+    flex-wrap: wrap;
   }
-  
-  .header-description {
-    font-size: 1.125rem;
+
+  .header-links {
+    gap: 16px;
   }
 }

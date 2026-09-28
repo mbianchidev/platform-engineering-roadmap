@@ -1,84 +1,63 @@
 .footer {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  color: white;
-  padding: 3rem 0;
-  margin-top: 4rem;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
 }
 
 .footer-content {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 28px 48px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-}
-
-.footer-info {
-  text-align: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .footer-info p {
-  font-size: 1rem;
-  margin: 0;
-  opacity: 0.95;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.footer-info .footer-note {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 650;
+  margin-bottom: 6px;
 }
 
 .footer-link {
-  color: white;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--text-primary);
   font-weight: 600;
-  transition: opacity 0.2s ease;
-}
-
-.footer-link:hover {
-  opacity: 0.8;
-}
-
-.footer-actions {
-  display: flex;
-  gap: 1rem;
 }
 
 .contribute-button {
-  background-color: white;
-  color: var(--primary-color);
-  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 0;
   border-radius: var(--radius);
+  color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.9375rem;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow);
+  font-size: 0.8125rem;
+  text-decoration: none;
 }
 
 .contribute-button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  background-color: var(--surface);
+  color: var(--primary-color);
 }
 
-.contribute-button:active {
-  transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-  .footer {
-    padding: 2rem 0;
-    margin-top: 3rem;
-  }
-
+@media (max-width: 900px) {
   .footer-content {
-    gap: 1rem;
+    padding-inline: 28px;
   }
+}
 
-  .footer-info p {
-    font-size: 0.9375rem;
-  }
-
-  .contribute-button {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
+@media (max-width: 580px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+    gap: 12px;
   }
 }
