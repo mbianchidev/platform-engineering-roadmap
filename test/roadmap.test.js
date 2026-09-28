@@ -128,13 +128,16 @@ for (const expected of approvedTopics) {
   })
 }
 
-test('Site Reliability includes searchable service-level concepts and incident command', () => {
+test('Site Reliability includes searchable service levels, telemetry, and incident command', () => {
   const topic = roadmapData.sections.flatMap(section => section.topics)
     .find(topic => topic.id === 'site-reliability')
   const areas = [
     ['Service Level Indicators (SLIs)', 'SLI'],
     ['Service Level Objectives (SLOs)', 'SLO'],
     ['Service Level Agreements (SLAs)', 'SLA'],
+    ['Logs', 'structured logs'],
+    ['Metrics', 'cardinality'],
+    ['Traces', 'distributed traces'],
     ['Incident Command', 'incident command'],
   ]
 
