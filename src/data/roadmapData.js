@@ -287,6 +287,9 @@ export const roadmapData = {
           links: [
             { title: "SRE Book (Google)", url: "https://sre.google/books/" },
             { title: "SRE Workbook", url: "https://sre.google/workbook/table-of-contents/" },
+            { title: "SLIs, SLOs & SLAs Explained", url: "https://sre.google/sre-book/service-level-objectives/" },
+            { title: "Implementing SLOs & Error Budgets", url: "https://sre.google/workbook/implementing-slos/" },
+            { title: "Incident Command & Coordination", url: "https://sre.google/sre-book/managing-incidents/" },
             { title: "Chaos Engineering Principles", url: "https://principlesofchaos.org/" },
             { title: "Chaos Monkey (Netflix)", url: "https://netflix.github.io/chaosmonkey/" },
             { title: "LitmusChaos", url: "https://litmuschaos.io/" },
@@ -295,6 +298,9 @@ export const roadmapData = {
           ],
           subtopics: [
             { name: "SRE vs DevOps", description: "Understanding the relationship and differences" },
+            { name: "Service Level Indicators (SLIs)", description: "Measure user-visible outcomes such as successful-request rate, latency, and freshness, with explicit measurement scope and telemetry coverage" },
+            { name: "Service Level Objectives (SLOs)", description: "Set a target for an SLI over a defined measurement window; use the corresponding error budget to guide reliability and release decisions" },
+            { name: "Service Level Agreements (SLAs)", description: "Define agreed service commitments, measurement rules, and consequences for breaches, such as service credits; distinguish these from internal SLOs" },
             { name: "Hard vs Soft Dependencies", description: "System dependency classification" },
             { name: "Scalability patterns", description: "Horizontal vs vertical scaling" },
             { name: "Rate Limiting", description: "Traffic flow control and protection" },
@@ -303,6 +309,7 @@ export const roadmapData = {
             { name: "Throughput & Latency", description: "System performance metrics" },
             { name: "Chaos Engineering", description: "Resilience testing practices" },
             { name: "Game Days", description: "Structured chaos experiments" },
+            { name: "Incident Command", description: "Assign one incident commander to coordinate mitigation, delegate operations, communications and timeline roles, manage escalation, and hand over command explicitly" },
             { name: "Incident Management", description: "Response, communication, post-mortems" },
             { name: "On-call practices", description: "Effective on-call rotations and runbooks" },
             { name: "Toil reduction", description: "Automating repetitive operational work" }

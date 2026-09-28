@@ -127,3 +127,22 @@ for (const expected of approvedTopics) {
     assert.equal(getTopicIdFromHash(getTopicHref(topic.id)), topic.id)
   })
 }
+
+test('Site Reliability includes searchable service-level concepts and incident command', () => {
+  const topic = roadmapData.sections.flatMap(section => section.topics)
+    .find(topic => topic.id === 'site-reliability')
+  const areas = [
+    ['Service Level Indicators (SLIs)', 'SLI'],
+    ['Service Level Objectives (SLOs)', 'SLO'],
+    ['Service Level Agreements (SLAs)', 'SLA'],
+    ['Incident Command', 'incident command'],
+  ]
+
+  for (const [name, query] of areas) {
+    const area = topic.subtopics.find(area => area.name === name)
+    assert.ok(area, `Site Reliability is missing ${name}`)
+    assert.ok(area.description.trim())
+    const matches = filterRoadmapSections(roadmapData.sections, query).flatMap(section => section.topics)
+    assert.ok(matches.some(match => match.id === topic.id), `Search should find Site Reliability for ${query}`)
+  }
+})
