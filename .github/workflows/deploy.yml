@@ -45,8 +45,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build
-        run: npm run build
+      - name: Install browser for interaction tests
+        run: npx playwright install --with-deps chromium
+
+      - name: Build and test desktop and mobile interactions
+        run: npm run test:e2e
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'

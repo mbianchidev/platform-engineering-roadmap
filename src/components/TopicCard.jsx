@@ -1,39 +1,31 @@
 import './TopicCard.css'
+import { getTopicHref } from '../data/roadmapUtils'
+import { ChevronIcon } from './Icons'
 
-const TopicCard = ({ topic, onClick }) => {
-  const hasSubtopics = topic.subtopics && topic.subtopics.length > 0
+const TopicCard = ({ topic, selected, onClick }) => {
+  const areaCount = topic.subtopics?.length ?? 0
 
   return (
-    <div className="topic-card" onClick={onClick}>
-      <div className="topic-header">
-        <h3 className="topic-title">{topic.title}</h3>
-        <p className="topic-description">{topic.description}</p>
-      </div>
-      
-      {hasSubtopics && (
-        <div className="subtopics-preview">
-          <div className="subtopics-count">
-            {topic.subtopics.length} subtopic{topic.subtopics.length !== 1 ? 's' : ''}
-          </div>
-          <div className="subtopics-list">
-            {topic.subtopics.slice(0, 3).map((subtopic, index) => (
-              <div key={index} className="subtopic-item">
-                {subtopic.name}
-              </div>
-            ))}
-            {topic.subtopics.length > 3 && (
-              <div className="subtopic-item more">
-                +{topic.subtopics.length - 3} more
-              </div>
-            )}
-          </div>
+    <li className="topic-item">
+      <a
+        id={`topic-link-${topic.id}`}
+        className="topic-card"
+        href={getTopicHref(topic.id)}
+        onClick={onClick}
+        aria-labelledby={`topic-label-${topic.id}`}
+        aria-describedby={`topic-description-${topic.id}`}
+        aria-current={selected ? 'true' : undefined}
+      >
+        <div className="topic-header">
+          <h3 id={`topic-label-${topic.id}`} className="topic-title">{topic.title}</h3>
+          <ChevronIcon className="topic-arrow" />
         </div>
-      )}
-      
-      <div className="card-footer">
-        <span className="click-hint">Click to learn more</span>
-      </div>
-    </div>
+        <span id={`topic-description-${topic.id}`} className="topic-description">{topic.description}</span>
+        {areaCount > 0 && (
+          <span className="topic-count">{areaCount} key area{areaCount === 1 ? '' : 's'}</span>
+        )}
+      </a>
+    </li>
   )
 }
 

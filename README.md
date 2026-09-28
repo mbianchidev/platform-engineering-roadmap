@@ -8,6 +8,29 @@ The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-
 
 In time, I created something similar to [roadmap.sh](https://roadmap.sh/) but for Platform Engineers.
 
+## Explore the roadmap
+
+The topic atlas groups the roadmap into **Individual Skills**, **Certifications**, and **Company Level**. Branch connections show categories, not prerequisites or a mandatory learning order.
+
+Technical topics include [data services and recovery](https://platform-engineering-roadmap.mbianchi.dev/#topic=data-recovery), [platform testing](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-testing), [multi-tenancy and isolation](https://platform-engineering-roadmap.mbianchi.dev/#topic=multi-tenancy), and [AI workload infrastructure](https://platform-engineering-roadmap.mbianchi.dev/#topic=ai-workload-infrastructure). Company-level topics cover [FinOps and platform economics](https://platform-engineering-roadmap.mbianchi.dev/#topic=finops) and [platform lifecycle](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-lifecycle), alongside adoption, culture, and governance.
+
+- All topics are visible by default, with no **Show more** step. Branch headers still let you collapse and expand whole groups.
+- Search topic names, descriptions, key areas, and resource titles. Multiple search terms must all match the same topic.
+- Open a topic to read the same descriptions, key areas, and resources in a centered dialog. The roadmap stays behind a blurred backdrop, with keyboard focus inside the dialog and background scrolling paused.
+- Share the topic's URL, such as [`#topic=cloud-native`](https://platform-engineering-roadmap.mbianchi.dev/#topic=cloud-native). Browser Back and Forward preserve topic navigation. Use **Close topic**, press Escape, or click the backdrop to return to the roadmap with your search and focus restored.
+- Dark mode is the default, regardless of your device's theme. Use the moon/sun button in the header to switch modes; your choice is saved in this browser. If browser storage is blocked, switching still works for the current page but cannot persist after reloading.
+
+## Run locally
+
+Use Node.js 22 (the CI version) or a supported newer LTS release.
+
+```bash
+npm ci
+npm run dev
+```
+
+Open the local URL printed by Vite. See [CONTRIBUTING.md](CONTRIBUTING.md#development-setup) for build and test commands. The site remains a static React/Vite application; no backend, account, or external font service is required.
+
 ## About me 
 
 I have been a Platform Engineer even before the name was out there, fighting Conway Law, dealing with team topologies (yes, before the book).

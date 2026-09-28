@@ -38,12 +38,15 @@ Found a bug or something that doesn't work as expected?
 
 ## Development Setup
 
+Use Node.js 22 (the CI version) or a supported newer LTS release.
+
 ```bash
 # Clone the repository
 git clone https://github.com/mbianchidev/platform-engineering-roadmap.git
+cd platform-engineering-roadmap
 
-# Install dependencies
-npm install
+# Restore locked dependencies
+npm ci
 
 # Run the development server
 npm run dev
@@ -53,7 +56,18 @@ npm run build
 
 # Lint the code
 npm run lint
+
+# Run unit tests
+npm test
+
+# Install the browser once, then run desktop and mobile interaction tests
+npx playwright install chromium
+npm run test:e2e
 ```
+
+The browser tests build the production site and serve it on `127.0.0.1:4179`; that port must be free. On Linux, use `npx playwright install --with-deps chromium` if browser system dependencies are missing. Test output is written to the ignored `test-results/` directory.
+
+Roadmap content lives in `src/data/roadmapData.js`. Keep topic IDs stable because shared topic URLs use them. The atlas searches existing content without changing it, and its branch lines represent categories rather than prerequisites.
 
 ## Code Style
 
@@ -66,4 +80,3 @@ Feel free to open an issue if you have any questions about contributing!
 ## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
-
