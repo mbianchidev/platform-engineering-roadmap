@@ -20,6 +20,7 @@ function luminance(color) {
 
 async function expectReadableColors(page) {
   const pairs = await page.evaluate(() => {
+    const scope = document.querySelector('dialog[open]') ?? document
     const background = element => {
       for (let current = element; current; current = current.parentElement) {
         const color = getComputedStyle(current).backgroundColor
@@ -31,20 +32,20 @@ async function expectReadableColors(page) {
       '.header-brand', '.brand-subtitle', '.header-links a', '.page-intro h1',
       '.page-intro p', '.search-status', '.section-title', '.section-count',
       '.section-description', '.topic-title', '.topic-description', '.topic-count',
-      '.branch-more', '.atlas-note', '.detail-title', '.detail-description',
-      '.detail-back', '.detail-section', '.topic-details h3', '.topic-details h4',
+      '.atlas-note', '.detail-title', '.detail-description',
+      '.detail-close', '.detail-section', '.topic-details h3', '.topic-details h4',
       '.key-areas-list p', '.resource-list a', '.footer-info p', '.footer-link',
       '.empty-search h2', '.empty-search p',
     ]
-    const text = [...document.querySelectorAll(selectors.join(','))]
+    const text = [...scope.querySelectorAll(selectors.join(','))]
       .filter(element => element.getClientRects().length > 0)
       .map(element => ({
-        label: element.textContent.trim().slice(0, 70),
+        label: element.textContent.trim().slice(0, 70) || element.getAttribute('aria-label'),
         foreground: getComputedStyle(element).color,
         background: background(element),
         minimum: 4.5,
       }))
-    const search = document.querySelector('#topic-search')
+    const search = scope.querySelector('#topic-search')
     if (search?.getClientRects().length > 0) {
       text.push({
         label: 'Search placeholder',
@@ -53,7 +54,7 @@ async function expectReadableColors(page) {
         minimum: 4.5,
       })
     }
-    for (const element of document.querySelectorAll('.search-field, .contribute-link, .theme-toggle')) {
+    for (const element of scope.querySelectorAll('.search-field, .contribute-link, .theme-toggle')) {
       if (element.getClientRects().length > 0) {
         text.push({
           label: `${element.className} border`,
@@ -101,16 +102,16 @@ for (const theme of ['light', 'dark']) {
     await page.goto('/')
     await expectTheme(page, theme)
     await expectReadableColors(page)
-    await page.screenshot({ path: testInfo.outputPath(`${theme}-atlas.png`), fullPage: true })
+    await page.screenshot({ path: testInfo.outputPath(`${theme}-atlas.png`), animations: 'disabled' })
 
     await page.getByRole('link', { name: 'YAML', exact: true }).click()
-    await expect(page.getByRole('complementary', { name: 'YAML', exact: true })).toBeVisible()
+    await expect(page.getByRole('dialog', { name: 'YAML', exact: true })).toBeVisible()
     await expectReadableColors(page)
-    await page.screenshot({ path: testInfo.outputPath(`${theme}-topic.png`), fullPage: true })
+    await page.screenshot({ path: testInfo.outputPath(`${theme}-topic.png`), animations: 'disabled' })
 
     await page.setViewportSize({ width: 320, height: 700 })
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
-    await page.getByRole('button', { name: 'Back to roadmap', exact: true }).click()
+    await page.getByRole('button', { name: 'Close topic', exact: true }).click()
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
     await page.getByRole('searchbox', { name: 'Search the roadmap' }).fill('no-topic-has-this-phrase')
     await expect(page.getByRole('heading', { name: 'No topics found' })).toBeVisible()
@@ -118,8 +119,8 @@ for (const theme of ['light', 'dark']) {
   })
 }
 
-test('toggles with the keyboard, preserves the selected topic, and remembers both modes', async ({ page }) => {
-  await page.goto('/#topic=multi-tenancy')
+test('remembers keyboard-selected themes across dialog navigation and reloads', async ({ page }) => {
+  await page.goto('/')
   const toggle = page.getByRole('button', { name: /^Switch to (light|dark) mode$/ })
   await expect(toggle).toHaveAccessibleName('Switch to light mode')
   await toggle.focus()
@@ -129,12 +130,15 @@ test('toggles with the keyboard, preserves the selected topic, and remembers bot
   await expect(toggle).toHaveAttribute('title', 'Switch to dark mode')
   await expect(toggle).toBeFocused()
   await expect(toggle).toHaveCSS('outline-style', 'solid')
-  await expect(page.getByRole('complementary', { name: 'Multi-tenancy & Isolation', exact: true })).toBeVisible()
+  await page.getByRole('link', { name: 'Multi-tenancy & Isolation', exact: true }).click()
+  await expect(page.getByRole('dialog', { name: 'Multi-tenancy & Isolation', exact: true })).toBeVisible()
   await expect(page).toHaveURL(/#topic=multi-tenancy$/)
   expect(await page.evaluate(key => localStorage.getItem(key), storageKey)).toBe('light')
 
   await page.reload()
   await expectTheme(page, 'light')
+  await expect(page.getByRole('dialog', { name: 'Multi-tenancy & Isolation', exact: true })).toBeVisible()
+  await page.keyboard.press('Escape')
   await expect(toggle).toHaveAccessibleName('Switch to dark mode')
   await toggle.focus()
   await page.keyboard.press('Enter')
@@ -142,8 +146,11 @@ test('toggles with the keyboard, preserves the selected topic, and remembers bot
   await expect(toggle).toHaveAccessibleName('Switch to light mode')
   await expect(toggle).toHaveAttribute('title', 'Switch to light mode')
   expect(await page.evaluate(key => localStorage.getItem(key), storageKey)).toBe('dark')
+  await page.getByRole('link', { name: 'Multi-tenancy & Isolation', exact: true }).click()
   await page.reload()
   await expectTheme(page, 'dark')
+  await expect(page.getByRole('dialog', { name: 'Multi-tenancy & Isolation', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Close topic', exact: true }).click()
   await expect(toggle).toHaveAccessibleName('Switch to light mode')
 })
 

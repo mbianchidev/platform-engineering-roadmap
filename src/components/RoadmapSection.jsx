@@ -2,21 +2,13 @@ import TopicCard from './TopicCard'
 import { ChevronIcon } from './Icons'
 import './RoadmapSection.css'
 
-const PREVIEW_SIZE = 5
-
 const RoadmapSection = ({
   section,
   selectedTopicId,
   onTopicClick,
   isCollapsed,
-  showAll,
-  isSearching,
   onToggleCollapse,
-  onToggleExpand,
 }) => {
-  const visibleTopics = showAll ? section.topics : section.topics.slice(0, PREVIEW_SIZE)
-  const hasMore = section.topics.length > PREVIEW_SIZE
-
   return (
     <section className={`roadmap-section branch-${section.id}`} aria-labelledby={`section-${section.id}`}>
       <div className="section-header">
@@ -41,7 +33,7 @@ const RoadmapSection = ({
 
       <div id={`branch-${section.id}`} hidden={isCollapsed}>
         <ul className="topics-list" id={`topics-${section.id}`}>
-          {visibleTopics.map(topic => (
+          {section.topics.map(topic => (
             <TopicCard
               key={topic.id}
               topic={topic}
@@ -50,18 +42,6 @@ const RoadmapSection = ({
             />
           ))}
         </ul>
-        {hasMore && !isSearching && (
-          <button
-            type="button"
-            className="branch-more"
-            onClick={onToggleExpand}
-            aria-expanded={showAll}
-            aria-controls={`topics-${section.id}`}
-          >
-            <ChevronIcon className={showAll ? 'chevron-expanded' : ''} />
-            {showAll ? 'Show fewer topics' : `Show ${section.topics.length - PREVIEW_SIZE} more topics`}
-          </button>
-        )}
       </div>
     </section>
   )

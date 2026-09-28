@@ -20,7 +20,6 @@ function toggleMembership(items, id) {
 function App() {
   const [query, setQuery] = useState('')
   const [collapsedSections, setCollapsedSections] = useState(new Set())
-  const [expandedSections, setExpandedSections] = useState(new Set())
   const [selectedTopicId, setSelectedTopicId] = useState(() => getTopicIdFromHash(window.location.hash))
   const searchRef = useRef(null)
   const detailHeadingRef = useRef(null)
@@ -45,12 +44,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (selectedTopicId !== null) {
-      detailHeadingRef.current?.focus({ preventScroll: true })
-      if (window.matchMedia('(max-width: 1180px)').matches) {
-        window.scrollTo({ top: 0, behavior: 'instant' })
-      }
-    } else if (previousTopicId.current !== null) {
+    if (selectedTopicId === null && previousTopicId.current !== null) {
       const trigger = document.getElementById(`topic-link-${previousTopicId.current}`)
       const target = trigger && trigger.getClientRects().length > 0 ? trigger : searchRef.current
       target?.focus()
@@ -91,7 +85,7 @@ function App() {
       <a className="skip-link" href="#roadmap">Skip to roadmap</a>
       <Header data={roadmapData} />
 
-      <main id="roadmap" className={`main-content${hasSelection ? ' has-detail' : ''}`} tabIndex={-1}>
+      <main id="roadmap" className="main-content" tabIndex={-1}>
         <div className="page-intro">
           <div>
             <h1>{roadmapData.title}</h1>
@@ -142,10 +136,7 @@ function App() {
                       selectedTopicId={selectedTopicId}
                       onTopicClick={openTopic}
                       isCollapsed={collapsedSections.has(section.id)}
-                      showAll={isSearching || expandedSections.has(section.id)}
-                      isSearching={isSearching}
                       onToggleCollapse={() => setCollapsedSections(current => toggleMembership(current, section.id))}
-                      onToggleExpand={() => setExpandedSections(current => toggleMembership(current, section.id))}
                     />
                   ))}
                 </div>

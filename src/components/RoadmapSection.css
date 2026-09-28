@@ -70,10 +70,6 @@
   transform: rotate(-90deg);
 }
 
-.chevron-expanded {
-  transform: rotate(180deg);
-}
-
 .section-description {
   margin-top: 12px;
   min-height: 3.2em;
@@ -87,23 +83,6 @@
   padding: 0 0 0 20px;
   border-left: 1px solid var(--connector);
   list-style: none;
-}
-
-.branch-more {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  margin: 14px 0 0 39px;
-  padding: 6px 8px;
-  color: var(--branch-color);
-  font-size: 0.8125rem;
-  font-weight: 650;
-  border-radius: var(--radius);
-}
-
-.branch-more:hover {
-  background: var(--branch-tint);
 }
 
 @media (max-width: 900px) {

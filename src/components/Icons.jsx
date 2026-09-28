@@ -32,10 +32,6 @@ export const ExternalLinkIcon = () => (
   <Icon><path d="M7 17 17 7M7 7h10v10" /></Icon>
 )
 
-export const ArrowLeftIcon = () => (
-  <Icon><path d="M19 12H5m6-6-6 6 6 6" /></Icon>
-)
-
 export const BranchIcon = () => (
   <Icon>
     <rect x="9" y="3" width="6" height="5" rx="1" />

@@ -42,10 +42,6 @@
   gap: 28px;
 }
 
-.has-detail .roadmap-workspace {
-  grid-template-columns: minmax(0, 1fr) 380px;
-}
-
 .atlas-pane {
   min-width: 0;
 }
@@ -101,16 +97,6 @@
 .search-status {
   font-size: 0.8125rem;
   color: var(--text-secondary);
-}
-
-.has-detail .roadmap-search {
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.has-detail .search-field {
-  width: 100%;
 }
 
 .atlas-origin {
@@ -200,16 +186,6 @@
     gap: 12px;
   }
 
-  .has-detail .page-intro,
-  .has-detail .atlas-pane {
-    display: none;
-  }
-
-  .has-detail .roadmap-workspace {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 760px;
-    margin-inline: auto;
-  }
 }
 
 @media (max-width: 900px) {

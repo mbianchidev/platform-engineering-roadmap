@@ -1,6 +1,7 @@
 :root {
   font-family: 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
   color-scheme: dark;
+  scrollbar-gutter: stable;
   color: var(--text-primary);
   background: var(--surface);
   font-synthesis: none;
