@@ -4,6 +4,7 @@ import { ExternalLinkIcon, MoonIcon, SunIcon } from './Icons'
 
 const Header = ({ data }) => {
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark')
+  const themeAction = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark'
@@ -40,9 +41,8 @@ const Header = ({ data }) => {
           <button
             type="button"
             className="theme-toggle icon-button"
-            aria-label="Dark mode"
-            aria-pressed={theme === 'dark'}
-            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={themeAction}
+            title={themeAction}
             onClick={toggleTheme}
           >
             {theme === 'dark' ? <MoonIcon /> : <SunIcon />}

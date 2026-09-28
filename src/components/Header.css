@@ -76,7 +76,7 @@
   color: var(--text-secondary);
 }
 
-.theme-toggle[aria-pressed='true'] {
+:root[data-theme='dark'] .theme-toggle {
   color: var(--primary-color);
 }
 

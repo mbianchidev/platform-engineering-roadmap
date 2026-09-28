@@ -79,7 +79,10 @@ for (const colorScheme of ['light', 'dark']) {
     await page.emulateMedia({ colorScheme })
     await page.goto('/')
     await expectTheme(page, 'dark')
-    await expect(page.getByRole('button', { name: 'Dark mode', exact: true })).toHaveAttribute('aria-pressed', 'true')
+    const toggle = page.getByRole('button', { name: 'Switch to light mode', exact: true })
+    await expect(toggle).toBeVisible()
+    await expect(toggle).toHaveAttribute('title', 'Switch to light mode')
+    expect(await toggle.getAttribute('aria-pressed')).toBeNull()
   })
 }
 
@@ -117,11 +120,13 @@ for (const theme of ['light', 'dark']) {
 
 test('toggles with the keyboard, preserves the selected topic, and remembers both modes', async ({ page }) => {
   await page.goto('/#topic=multi-tenancy')
-  const toggle = page.getByRole('button', { name: 'Dark mode', exact: true })
+  const toggle = page.getByRole('button', { name: /^Switch to (light|dark) mode$/ })
+  await expect(toggle).toHaveAccessibleName('Switch to light mode')
   await toggle.focus()
   await page.keyboard.press('Space')
   await expectTheme(page, 'light')
-  await expect(toggle).toHaveAttribute('aria-pressed', 'false')
+  await expect(toggle).toHaveAccessibleName('Switch to dark mode')
+  await expect(toggle).toHaveAttribute('title', 'Switch to dark mode')
   await expect(toggle).toBeFocused()
   await expect(toggle).toHaveCSS('outline-style', 'solid')
   await expect(page.getByRole('complementary', { name: 'Multi-tenancy & Isolation', exact: true })).toBeVisible()
@@ -130,12 +135,16 @@ test('toggles with the keyboard, preserves the selected topic, and remembers bot
 
   await page.reload()
   await expectTheme(page, 'light')
+  await expect(toggle).toHaveAccessibleName('Switch to dark mode')
   await toggle.focus()
   await page.keyboard.press('Enter')
   await expectTheme(page, 'dark')
+  await expect(toggle).toHaveAccessibleName('Switch to light mode')
+  await expect(toggle).toHaveAttribute('title', 'Switch to light mode')
   expect(await page.evaluate(key => localStorage.getItem(key), storageKey)).toBe('dark')
   await page.reload()
   await expectTheme(page, 'dark')
+  await expect(toggle).toHaveAccessibleName('Switch to light mode')
 })
 
 test('uses dark mode for an invalid saved preference', async ({ page }) => {
@@ -156,8 +165,9 @@ test('still toggles when browser storage is unavailable and reports the persiste
   })
   await page.goto('/')
   await expectTheme(page, 'dark')
-  await page.getByRole('button', { name: 'Dark mode', exact: true }).click()
+  await page.getByRole('button', { name: 'Switch to light mode', exact: true }).click()
   await expectTheme(page, 'light')
+  await expect(page.getByRole('button', { name: 'Switch to dark mode', exact: true })).toBeVisible()
   expect(warnings.some(warning => warning.includes('Could not read saved theme'))).toBe(true)
   expect(warnings.some(warning => warning.includes('Could not save theme preference'))).toBe(true)
 })
