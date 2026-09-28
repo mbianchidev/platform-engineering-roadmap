@@ -101,8 +101,17 @@ test('restores focus to the topic revisited through browser history', async ({ p
   await expect(page.getByRole('link', { name: 'YAML', exact: true })).toBeFocused()
 })
 
-test('returns focus to search if the topic branch was collapsed while reading', async ({ page, isMobile }) => {
+test('keeps branch controls available and restores visible focus while reading', async ({ page, isMobile }) => {
   test.skip(isMobile, 'The atlas is replaced by the reading view on small screens.')
+  const branch = page.getByRole('region', { name: 'Individual Skills', exact: true })
+  await branch.getByRole('button', { name: /Show \d+ more topics/ }).click()
+  await branch.getByRole('link', { name: 'Cloud Native', exact: true }).click()
+  await branch.getByRole('button', { name: 'Show fewer topics', exact: true }).click()
+  await expect(branch.getByRole('link', { name: 'Cloud Native', exact: true })).toBeHidden()
+  await expect(page.getByRole('complementary', { name: 'Cloud Native', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Back to roadmap', exact: true }).click()
+  await expect(page.getByRole('searchbox', { name: 'Search the roadmap' })).toBeFocused()
+
   await page.getByRole('link', { name: 'YAML', exact: true }).click()
   await page.getByRole('button', { name: 'Collapse Individual Skills', exact: true }).click()
   await page.getByRole('button', { name: 'Back to roadmap', exact: true }).click()

@@ -14,9 +14,7 @@ const RoadmapSection = ({
   onToggleCollapse,
   onToggleExpand,
 }) => {
-  const selectedIndex = section.topics.findIndex(topic => topic.id === selectedTopicId)
-  const expanded = showAll || selectedIndex >= PREVIEW_SIZE
-  const visibleTopics = expanded ? section.topics : section.topics.slice(0, PREVIEW_SIZE)
+  const visibleTopics = showAll ? section.topics : section.topics.slice(0, PREVIEW_SIZE)
   const hasMore = section.topics.length > PREVIEW_SIZE
 
   return (
@@ -52,16 +50,16 @@ const RoadmapSection = ({
             />
           ))}
         </ul>
-        {hasMore && !isSearching && selectedIndex < PREVIEW_SIZE && (
+        {hasMore && !isSearching && (
           <button
             type="button"
             className="branch-more"
             onClick={onToggleExpand}
-            aria-expanded={expanded}
+            aria-expanded={showAll}
             aria-controls={`topics-${section.id}`}
           >
-            <ChevronIcon className={expanded ? 'chevron-expanded' : ''} />
-            {expanded ? 'Show fewer topics' : `Show ${section.topics.length - PREVIEW_SIZE} more topics`}
+            <ChevronIcon className={showAll ? 'chevron-expanded' : ''} />
+            {showAll ? 'Show fewer topics' : `Show ${section.topics.length - PREVIEW_SIZE} more topics`}
           </button>
         )}
       </div>
