@@ -137,6 +137,30 @@ export const roadmapData = {
           ]
         },
         {
+          id: "data-recovery",
+          title: "Data Services & Recovery",
+          description: "Database operations, backups, and tested disaster recovery",
+          content: "A platform's data services need more than a persistent volume and a healthy replica. Choose managed services or database operators according to recovery objectives, consistency needs, and the team's ability to operate them. Replication can copy accidental deletion and corruption; it is not a substitute for independent backups. Prove recovery by restoring data, verifying application behavior, and measuring the time and data loss against agreed objectives.",
+          links: [
+            { title: "Google SRE: Data Integrity", url: "https://sre.google/sre-book/data-integrity/" },
+            { title: "PostgreSQL Continuous Archiving & PITR", url: "https://www.postgresql.org/docs/current/continuous-archiving.html" },
+            { title: "CloudNativePG Backup Concepts", url: "https://cloudnative-pg.io/docs/current/backup/" },
+            { title: "Velero Backup & Restore", url: "https://velero.io/docs/" }
+          ],
+          subtopics: [
+            { name: "Managed vs Self-managed Data Services", description: "Compare patching, failover, backup, support, cost, and operational ownership before choosing a service or operator" },
+            { name: "Storage & Data Semantics", description: "Distinguish block, file, and object storage from database transactions, durability, and application consistency" },
+            { name: "Replication & Writer Fencing", description: "Understand replication lag, synchronous trade-offs, read routing, and preventing an old primary from writing after failover" },
+            { name: "Consistent Backups", description: "Use engine-supported backups; volume snapshots and Kubernetes object backups alone do not guarantee application-consistent recovery" },
+            { name: "Point-in-Time Recovery (PITR)", description: "Combine recoverable base backups with continuous WAL or binlog archives and verify the required recovery window" },
+            { name: "Recovery Objectives", description: "Agree on recovery point objective (RPO) for acceptable data loss and recovery time objective (RTO) for service restoration" },
+            { name: "Restore Drills", description: "Restore into an isolated environment and verify integrity, permissions, application queries, and measured recovery time" },
+            { name: "Regional Recovery & Failback", description: "Plan destination capacity, credentials, encryption keys, traffic cutover, writer fencing, and a tested return to normal operation" },
+            { name: "Safe Database Changes", description: "Test engine upgrades and expand-contract schema migrations; bound backfill load, lock time, and connection growth" },
+            { name: "Backup Protection & Retention", description: "Separate backup access from production administration, protect copies from deletion, and retain the keys and metadata needed to restore" }
+          ]
+        },
+        {
           id: "devops",
           title: "DevOps",
           description: "DevOps practices, cloud platforms, and automation",
@@ -285,6 +309,29 @@ export const roadmapData = {
           ]
         },
         {
+          id: "platform-testing",
+          title: "Platform Testing",
+          description: "Testing infrastructure, platform APIs, policies, and golden paths",
+          content: "Platform changes deserve the same testing discipline as application changes. Validate small units and contracts quickly, then exercise the real provisioning, deployment, and recovery paths in isolated environments. A valid manifest or successful plan does not prove that a developer can use the platform. Test failures and denied operations as well as the happy path, use synthetic data, and verify that temporary resources are removed.",
+          links: [
+            { title: "OpenTofu Test Command", url: "https://opentofu.org/docs/cli/commands/test/" },
+            { title: "OPA Policy Testing", url: "https://www.openpolicyagent.org/docs/policy-testing" },
+            { title: "Kyverno Chainsaw", url: "https://kyverno.github.io/chainsaw/latest/" },
+            { title: "Pact Contract Testing", url: "https://docs.pact.io/" }
+          ],
+          subtopics: [
+            { name: "Test Layers", description: "Combine fast unit and schema checks with integration, contract, and end-to-end tests rather than relying on one expensive suite" },
+            { name: "Infrastructure as Code Testing", description: "Check plans and module assertions, then verify real resources in disposable accounts or clusters with bounded cost and cleanup" },
+            { name: "Policy & Admission Tests", description: "Exercise allowed, denied, malformed, and exception cases for OPA, Kyverno, and other guardrails" },
+            { name: "API Contract Testing", description: "Verify request, response, error, and event compatibility between platform APIs and their consumers" },
+            { name: "Golden-path End-to-end Tests", description: "Exercise scaffolding, provisioning, deployment, observability, and teardown from a developer's point of view" },
+            { name: "Upgrade & Migration Tests", description: "Test supported version combinations, existing workloads, data migrations, and documented rollback limits" },
+            { name: "Load & Failure Testing", description: "Measure latency, saturation, rate limits, dependency failures, and recovery under bounded synthetic workloads" },
+            { name: "Ephemeral Test Environments", description: "Use synthetic fixtures, scoped credentials, resource budgets, expiry, and verified cleanup even when tests fail" },
+            { name: "Post-deployment Verification", description: "Use safe synthetic checks and service objectives to detect regressions after promotion without exposing customer data" }
+          ]
+        },
+        {
           id: "ai-ml-fundamentals",
           title: "AI & ML Fundamentals",
           description: "AI and machine learning basics for platform and SRE work",
@@ -386,6 +433,54 @@ export const roadmapData = {
             { name: "Operators & CRDs", description: "Extending Kubernetes with custom resources" },
             { name: "Multi-cluster", description: "Federation, multi-cluster management" },
             { name: "eBPF", description: "Kernel-level observability and networking" }
+          ]
+        },
+        {
+          id: "multi-tenancy",
+          title: "Multi-tenancy & Isolation",
+          description: "Tenant boundaries, fair resource sharing, and noisy-neighbor control",
+          content: "Multi-tenancy is a trust and resource-sharing design, not just a namespace convention. Decide who the tenants are, which components they share, and what happens if a tenant is compromised or exhausts resources. Namespaces and separate control planes do not, by themselves, isolate a shared host kernel. Combine appropriate runtime or cluster boundaries with authorization, network and data controls, quotas, and tested tenant onboarding and offboarding.",
+          links: [
+            { title: "Kubernetes Multi-tenancy", url: "https://kubernetes.io/docs/concepts/security/multi-tenancy/" },
+            { title: "Kubernetes Resource Quotas", url: "https://kubernetes.io/docs/concepts/policy/resource-quotas/" },
+            { title: "Capsule Shared-cluster Tenancy", url: "https://projectcapsule.dev/docs/" },
+            { title: "SPIFFE Workload Identity", url: "https://spiffe.io/docs/latest/spiffe-about/overview/" }
+          ],
+          subtopics: [
+            { name: "Tenant Trust Models", description: "Distinguish cooperating internal teams, external customers, and untrusted workloads before choosing isolation boundaries" },
+            { name: "Namespaces, Control Planes & Clusters", description: "Compare namespace-based tenancy, tenant control planes, dedicated clusters, and isolated runtimes without confusing API separation with host isolation" },
+            { name: "Workload Identity & Authorization", description: "Scope service accounts, short-lived credentials, RBAC, secrets, and administrative access to the intended tenant" },
+            { name: "Network & Egress Isolation", description: "Enforce and test default-deny policies, permitted DNS and service paths, and outbound access using a compatible network implementation" },
+            { name: "Quotas & Noisy Neighbors", description: "Combine resource requests, limits, quotas, API fairness, and capacity planning; quota alone does not reserve capacity or eliminate contention" },
+            { name: "Cluster-scoped Dependencies", description: "Account for shared CRDs, admission webhooks, operators, and cluster administrators that can affect every tenant" },
+            { name: "Data & Telemetry Isolation", description: "Enforce tenant access in storage, backups, caches, logs, metrics, and traces rather than relying only on network separation" },
+            { name: "Tenant Lifecycle", description: "Automate onboarding, policy inheritance, access reviews, and offboarding with explicit data-retention and resource-cleanup rules" },
+            { name: "Isolation Verification", description: "Test cross-tenant denials and noisy-neighbor scenarios with synthetic workloads, and document the remaining shared failure boundaries" }
+          ]
+        },
+        {
+          id: "ai-workload-infrastructure",
+          title: "AI Workload Infrastructure",
+          description: "GPU scheduling, model serving, and reliable training infrastructure",
+          content: "Running AI workloads is a different platform responsibility from using AI to help operators. Training, batch inference, and online serving have different scheduling, storage, recovery, and latency requirements. Design accelerator allocation, model delivery, tenant boundaries, and service objectives together. Measure useful throughput and cost, not GPU utilization alone, and prove that jobs can restart and serving workloads can meet their objectives.",
+          links: [
+            { title: "Kubernetes Dynamic Resource Allocation", url: "https://kubernetes.io/docs/concepts/resource-management/dynamic-resource-allocation/" },
+            { title: "Kueue Batch Admission & Quotas", url: "https://kueue.sigs.k8s.io/docs/overview/" },
+            { title: "Kubeflow Trainer", url: "https://www.kubeflow.org/docs/components/trainer/overview/" },
+            { title: "KServe Model Serving", url: "https://kserve.github.io/website/" },
+            { title: "GPU Time-slicing & MIG Trade-offs", url: "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html" }
+          ],
+          subtopics: [
+            { name: "Training, Batch & Online Inference", description: "Separate queue-wait and completion targets from interactive latency, availability, and output-correctness objectives" },
+            { name: "GPU Scheduling & Allocation", description: "Match hardware, drivers, and runtimes; use supported device plugins or DRA ResourceClaims without allocating the same device through competing mechanisms" },
+            { name: "Batch Admission & Fair Sharing", description: "Use queues, quotas, priorities, and coordinated admission; Kueue admission complements rather than replaces pod placement or node autoscaling" },
+            { name: "Accelerator Sharing & Isolation", description: "Compare whole devices, MIG partitions, and time-slicing; time-slicing does not provide dedicated memory or fault isolation" },
+            { name: "Distributed Training Topology", description: "Align GPU memory, CPU and NUMA placement, interconnect, and storage bandwidth across workers" },
+            { name: "Model & Dataset Delivery", description: "Plan object storage, local caches, immutable artifact versions, tenant permissions, and download fan-out during cold starts" },
+            { name: "Durable Checkpoints", description: "Store checkpoints outside disposable workers and test restart compatibility before relying on preemption or interruptible capacity" },
+            { name: "Model Serving & Autoscaling", description: "Account for model-loading time, batching, concurrency, time to first token, and tail latency when scaling inference" },
+            { name: "Artifact Lineage & Access", description: "Track model, dataset, and image identity; treat executable model formats as code and protect training data and serving credentials" },
+            { name: "AI Reliability & Economics", description: "Measure queue age, useful throughput, failed work, cost per inference or token, and service objectives without logging sensitive prompts" }
           ]
         },
         {
@@ -561,6 +656,28 @@ export const roadmapData = {
           ]
         },
         {
+          id: "platform-lifecycle",
+          title: "Platform Lifecycle",
+          description: "Versioning, upgrades, migrations, deprecation, and retirement",
+          content: "A platform capability needs an owner and an evolution plan long after its first release. Treat APIs, templates, operators, and shared services as supported products with explicit compatibility and maintenance policies. Give consumers practical migration paths and evidence that upgrades work before removing old behavior. Retirement is part of the lifecycle too: reclaim resources and access without losing data that must be retained.",
+          links: [
+            { title: "CNCF Platform Engineering Maturity Model", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/" },
+            { title: "Semantic Versioning", url: "https://semver.org/" },
+            { title: "Kubernetes Deprecation Policy", url: "https://kubernetes.io/docs/reference/deprecation-policy/" },
+            { title: "Kubernetes Upgrade Guide", url: "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/" }
+          ],
+          subtopics: [
+            { name: "Capability Ownership & Support", description: "Track accountable teams, consumers, supported versions, maintenance windows, and end-of-life commitments" },
+            { name: "API Versioning & Compatibility", description: "Define breaking changes, version contracts, test older clients, and communicate behavior changes beyond schema compatibility" },
+            { name: "Golden-path & Template Evolution", description: "Version templates and dependencies; updating a scaffold does not automatically migrate applications created from older versions" },
+            { name: "Platform Upgrades", description: "Test component compatibility and supported version skew, stage fleet rollouts, and bound the blast radius of upgrades" },
+            { name: "Migration Paths", description: "Provide tooling, documentation, and coexistence windows for API and data migrations, with explicit rollback or roll-forward limits" },
+            { name: "Deprecation Policy", description: "Publish notices and timelines, identify remaining consumers, offer supported alternatives, and handle time-bounded exceptions" },
+            { name: "Safe Decommissioning", description: "Verify consumers have moved, preserve required data, revoke identities, and remove obsolete resources, integrations, and costs" },
+            { name: "Sustainable Maintenance", description: "Budget for patching and migration work, track adoption and support burden, and retire capabilities that no longer justify their cost" }
+          ]
+        },
+        {
           id: "measuring-success",
           title: "Measuring Platform Success",
           description: "Metrics and KPIs for platform engineering",
@@ -578,6 +695,29 @@ export const roadmapData = {
             { name: "Developer Satisfaction", description: "NPS and developer surveys" },
             { name: "Time to First Deploy", description: "Onboarding efficiency metric" },
             { name: "Self-Service Ratio", description: "Automation vs manual requests" }
+          ]
+        },
+        {
+          id: "finops",
+          title: "FinOps & Platform Economics",
+          description: "Cost allocation, showback, and the economics of platform capabilities",
+          content: "FinOps connects engineering decisions to the value and cost of running technology. Platform teams can make costs understandable at the point of use, build efficient defaults, and help finance and product teams agree on trade-offs. Optimize cost per useful outcome while protecting reliability and developer experience, rather than treating a smaller infrastructure bill as success on its own.",
+          links: [
+            { title: "FinOps Framework", url: "https://www.finops.org/framework/" },
+            { title: "FinOps Cost Allocation", url: "https://www.finops.org/framework/capabilities/allocation/" },
+            { title: "FinOps Unit Economics", url: "https://www.finops.org/framework/capabilities/unit-economics/" },
+            { title: "OpenCost Kubernetes Cost Allocation", url: "https://opencost.io/docs/" }
+          ],
+          subtopics: [
+            { name: "Cost Allocation", description: "Map accounts, tags, labels, and service ownership to teams and products, including a clear policy for shared and idle costs" },
+            { name: "Showback & Chargeback", description: "Distinguish showing teams their attributed costs from actually charging budgets, and make allocation rules transparent" },
+            { name: "Unit Economics", description: "Track cost per request, tenant, build, or other useful outcome alongside quality, reliability, and business value" },
+            { name: "Budgets & Forecasting", description: "Forecast demand, investigate anomalies, and assign budget owners; spending alerts are not automatic hard limits" },
+            { name: "Resource Efficiency", description: "Right-size requests, scale idle capacity, and tune storage and telemetry retention while measuring the effect on service objectives" },
+            { name: "Pricing & Capacity Commitments", description: "Compare on-demand and committed spend, utilization risk, interruption tolerance, and data-transfer charges" },
+            { name: "Cost-aware Self-service", description: "Expose estimates and ownership in golden paths, apply quotas, and expire temporary environments with safe cleanup" },
+            { name: "Cost Data Quality", description: "Reconcile allocation estimates with billing data and document discounts, currency, timing, and shared-cost assumptions" },
+            { name: "Cross-functional Decisions", description: "Bring engineering, finance, and product owners together to fund capabilities and evaluate cost, value, and risk over time" }
           ]
         },
         {

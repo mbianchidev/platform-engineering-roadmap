@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
+import { roadmapData } from '../src/data/roadmapData.js'
 import { filterRoadmapSections, getTopicHref, getTopicIdFromHash } from '../src/data/roadmapUtils.js'
 
 const sections = [
@@ -85,3 +86,44 @@ test('empty or malformed topic IDs remain distinguishable from an absent topic',
   assert.equal(getTopicIdFromHash('#topic='), '')
   assert.notEqual(getTopicIdFromHash('#topic=%E0%A4%A'), null)
 })
+
+test('roadmap topic IDs are unique and safe to use as stable links', () => {
+  const ids = roadmapData.sections.flatMap(section => section.topics.map(topic => topic.id))
+  assert.equal(new Set(ids).size, ids.length)
+  for (const id of ids) assert.match(id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+})
+
+const approvedTopics = [
+  { id: 'finops', section: 'company', title: 'FinOps & Platform Economics', query: 'showback' },
+  { id: 'data-recovery', section: 'individual', title: 'Data Services & Recovery', query: 'PITR' },
+  { id: 'platform-testing', section: 'individual', title: 'Platform Testing', query: 'contract testing' },
+  { id: 'platform-lifecycle', section: 'company', title: 'Platform Lifecycle', query: 'deprecation' },
+  { id: 'multi-tenancy', section: 'individual', title: 'Multi-tenancy & Isolation', query: 'noisy neighbors' },
+  { id: 'ai-workload-infrastructure', section: 'individual', title: 'AI Workload Infrastructure', query: 'GPU scheduling' },
+]
+
+for (const expected of approvedTopics) {
+  test(`${expected.title} has learning content, resources, search coverage, and a stable link`, () => {
+    const section = roadmapData.sections.find(section => section.id === expected.section)
+    const topic = section.topics.find(topic => topic.id === expected.id)
+    assert.ok(topic, `Missing approved topic: ${expected.id}`)
+    assert.equal(topic.title, expected.title)
+    assert.ok(topic.description.trim())
+    assert.ok(topic.content.trim())
+    assert.ok(topic.subtopics.length > 0)
+    assert.ok(topic.links.length > 0)
+
+    for (const area of topic.subtopics) {
+      assert.ok(area.name.trim())
+      assert.ok(area.description.trim())
+    }
+    for (const link of topic.links) {
+      assert.ok(link.title.trim())
+      assert.equal(new URL(link.url).protocol, 'https:')
+    }
+
+    const matches = filterRoadmapSections(roadmapData.sections, expected.query).flatMap(section => section.topics)
+    assert.ok(matches.some(match => match.id === topic.id), `Search should find ${topic.id}`)
+    assert.equal(getTopicIdFromHash(getTopicHref(topic.id)), topic.id)
+  })
+}

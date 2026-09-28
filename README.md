@@ -12,6 +12,8 @@ In time, I created something similar to [roadmap.sh](https://roadmap.sh/) but fo
 
 The topic atlas groups the roadmap into **Individual Skills**, **Certifications**, and **Company Level**. Branch connections show categories, not prerequisites or a mandatory learning order.
 
+Technical topics include [data services and recovery](https://platform-engineering-roadmap.mbianchi.dev/#topic=data-recovery), [platform testing](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-testing), [multi-tenancy and isolation](https://platform-engineering-roadmap.mbianchi.dev/#topic=multi-tenancy), and [AI workload infrastructure](https://platform-engineering-roadmap.mbianchi.dev/#topic=ai-workload-infrastructure). Company-level topics cover [FinOps and platform economics](https://platform-engineering-roadmap.mbianchi.dev/#topic=finops) and [platform lifecycle](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-lifecycle), alongside adoption, culture, and governance.
+
 - Expand a branch or use **Show more topics** to browse beyond its preview.
 - Search topic names, descriptions, key areas, and resource titles. Multiple search terms must all match the same topic.
 - Open a topic to read its key areas and resources alongside the atlas on wide screens, or in a dedicated reading view on smaller screens.
