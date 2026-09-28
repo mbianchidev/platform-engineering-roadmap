@@ -1,7 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0c1424" />
+    <script>
+      (() => {
+        let theme = 'dark'
+        try {
+          const savedTheme = localStorage.getItem('platform-engineering-roadmap-theme')
+          if (savedTheme === 'light' || savedTheme === 'dark') {
+            theme = savedTheme
+          } else if (savedTheme !== null) {
+            console.warn('Unknown saved theme; using dark mode.')
+          }
+        } catch (error) {
+          console.warn('Could not read saved theme; using dark mode.', error)
+        }
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="color-scheme"]').content = theme
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#0c1424' : '#f5f7fb'
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="An opinionated roadmap to become a Platform Engineer. Explore technical skills, certifications, and organizational practices." />

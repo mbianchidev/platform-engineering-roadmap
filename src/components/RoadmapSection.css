@@ -8,7 +8,7 @@
 .roadmap-section::after {
   content: '';
   position: absolute;
-  background: #b7c5d9;
+  background: var(--connector);
 }
 
 .roadmap-section::before {
@@ -85,7 +85,7 @@
 .topics-list {
   margin: 0 0 0 18px;
   padding: 0 0 0 20px;
-  border-left: 1px solid #b7c5d9;
+  border-left: 1px solid var(--connector);
   list-style: none;
 }
 

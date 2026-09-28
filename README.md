@@ -18,6 +18,7 @@ Technical topics include [data services and recovery](https://platform-engineeri
 - Search topic names, descriptions, key areas, and resource titles. Multiple search terms must all match the same topic.
 - Open a topic to read its key areas and resources alongside the atlas on wide screens, or in a dedicated reading view on smaller screens.
 - Share the topic's URL, such as [`#topic=cloud-native`](https://platform-engineering-roadmap.mbianchi.dev/#topic=cloud-native). Browser Back and Forward preserve topic navigation. Use **Back to roadmap** or press Escape from the reading pane to return.
+- Dark mode is the default, regardless of your device's theme. Use the moon/sun button in the header to switch modes; your choice is saved in this browser. If browser storage is blocked, switching still works for the current page but cannot persist after reloading.
 
 ## Run locally
 

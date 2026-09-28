@@ -1,26 +1,58 @@
 :root {
   font-family: 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
-  color-scheme: light;
-  color: #1b2b43;
-  background: #f5f7fb;
+  color-scheme: dark;
+  color: var(--text-primary);
+  background: var(--surface);
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --primary-color: #9bbaff;
+  --primary-hover: #c3d5ff;
+  --background: #131e30;
+  --surface: #0c1424;
+  --surface-hover: #22324b;
+  --border: #35445b;
+  --control-border: #7b8aa4;
+  --connector: #63738e;
+  --text-primary: #e4ecf8;
+  --text-secondary: #b0bfd4;
+  --text-muted: #99aac1;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --branch-color: #b3ceff;
+  --branch-tint: #1e304d;
+  --branch-border: #425f86;
+  --certification-color: #d9c5f7;
+  --certification-tint: #342641;
+  --certification-border: #6f528a;
+  --company-color: #a6dbc5;
+  --company-tint: #1b362f;
+  --company-border: #45695a;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
   --primary-color: #2454bf;
   --primary-hover: #173e97;
   --background: #ffffff;
   --surface: #f5f7fb;
   --surface-hover: #edf1f8;
   --border: #d6deea;
+  --control-border: #7d8da5;
+  --connector: #7d8da5;
   --text-primary: #1b2b43;
   --text-secondary: #52617a;
   --text-muted: #617089;
-  --radius: 8px;
-  --radius-lg: 12px;
   --branch-color: #284f9d;
   --branch-tint: #e8efff;
   --branch-border: #c6d5f1;
+  --certification-color: #62428c;
+  --certification-tint: #eee7f8;
+  --certification-border: #d9caec;
+  --company-color: #215d4c;
+  --company-tint: #e0f0e9;
+  --company-border: #bedccf;
 }
 
 * {
@@ -94,13 +126,13 @@ svg {
   padding: 12px 20px;
   border-radius: var(--radius);
   background: var(--text-primary);
-  color: white;
+  color: var(--background);
   transform: translateY(-180%);
 }
 
 .skip-link:focus {
   transform: translateY(0);
-  color: white;
+  color: var(--background);
 }
 
 .icon-button {
