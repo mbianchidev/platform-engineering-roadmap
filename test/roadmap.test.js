@@ -128,24 +128,46 @@ for (const expected of approvedTopics) {
   })
 }
 
-test('Site Reliability includes searchable service levels, telemetry, and incident command', () => {
-  const topic = roadmapData.sections.flatMap(section => section.topics)
-    .find(topic => topic.id === 'site-reliability')
-  const areas = [
-    ['Service Level Indicators (SLIs)', 'SLI'],
-    ['Service Level Objectives (SLOs)', 'SLO'],
-    ['Service Level Agreements (SLAs)', 'SLA'],
-    ['Logs', 'structured logs'],
-    ['Metrics', 'cardinality'],
-    ['Traces', 'distributed traces'],
-    ['Incident Command', 'incident command'],
-  ]
+const requiredKeyAreas = [
+  {
+    id: 'site-reliability',
+    title: 'Site Reliability',
+    areas: [
+      ['Service Level Indicators (SLIs)', 'SLI'],
+      ['Service Level Objectives (SLOs)', 'SLO'],
+      ['Service Level Agreements (SLAs)', 'SLA'],
+      ['Logs', 'structured logs'],
+      ['Metrics', 'cardinality'],
+      ['Traces', 'distributed traces'],
+      ['Incident Command', 'incident command'],
+    ],
+  },
+  {
+    id: 'multi-tenancy',
+    title: 'Multi-tenancy & Isolation',
+    areas: [
+      ['Sandboxing & Runtime Isolation', 'sandboxing'],
+      ['Kata Containers', 'Kata Containers'],
+      ['gVisor', 'gVisor'],
+      ['Firecracker MicroVMs', 'Firecracker'],
+      ['Hyperlight', 'Hyperlight'],
+      ['WebAssembly Sandboxes', 'Wasmtime'],
+    ],
+  },
+]
 
-  for (const [name, query] of areas) {
-    const area = topic.subtopics.find(area => area.name === name)
-    assert.ok(area, `Site Reliability is missing ${name}`)
-    assert.ok(area.description.trim())
-    const matches = filterRoadmapSections(roadmapData.sections, query).flatMap(section => section.topics)
-    assert.ok(matches.some(match => match.id === topic.id), `Search should find Site Reliability for ${query}`)
-  }
-})
+for (const expected of requiredKeyAreas) {
+  test(`${expected.title} includes searchable key areas`, () => {
+    const topic = roadmapData.sections.flatMap(section => section.topics)
+      .find(topic => topic.id === expected.id)
+    assert.ok(topic, `Missing topic: ${expected.id}`)
+
+    for (const [name, query] of expected.areas) {
+      const area = topic.subtopics.find(area => area.name === name)
+      assert.ok(area, `${expected.title} is missing ${name}`)
+      assert.ok(area.description.trim())
+      const matches = filterRoadmapSections(roadmapData.sections, query).flatMap(section => section.topics)
+      assert.ok(matches.some(match => match.id === topic.id), `Search should find ${expected.title} for ${query}`)
+    }
+  })
+}
