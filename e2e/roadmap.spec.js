@@ -10,6 +10,7 @@ test('shows the three roadmap branches without implying a required order', async
 
   for (const section of roadmapData.sections) {
     await expect(page.getByRole('heading', { name: section.title, exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: section.topics[0].title, level: 3, exact: true })).toBeVisible()
   }
 
   await expect(page.getByText('Branches group topics, not prerequisites.')).toBeVisible()

@@ -16,10 +16,10 @@ const TopicCard = ({ topic, selected, onClick }) => {
         aria-describedby={`topic-description-${topic.id}`}
         aria-current={selected ? 'true' : undefined}
       >
-        <span className="topic-header">
-          <span id={`topic-label-${topic.id}`} className="topic-title">{topic.title}</span>
+        <div className="topic-header">
+          <h3 id={`topic-label-${topic.id}`} className="topic-title">{topic.title}</h3>
           <ChevronIcon className="topic-arrow" />
-        </span>
+        </div>
         <span id={`topic-description-${topic.id}`} className="topic-description">{topic.description}</span>
         {areaCount > 0 && (
           <span className="topic-count">{areaCount} key area{areaCount === 1 ? '' : 's'}</span>
