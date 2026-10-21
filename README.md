@@ -1,37 +1,58 @@
+<img src="public/favicon.svg" alt="Platform Engineering Roadmap logo" width="64" height="64">
+
 # Platform Engineering Roadmap
 
-An opinionated roadmap to become a Platform Engineer, including AI, ML, and AI agent practices for SRE and platform work.
+[Live roadmap](https://platform-engineering-roadmap.mbianchi.dev/) | [Development guide](CONTRIBUTING.md#development-setup) | [Topic suggestion template](.github/ISSUE_TEMPLATE/suggest_topic.yml)
 
-Visit [https://platform-engineering-roadmap.mbianchi.dev/](https://platform-engineering-roadmap.mbianchi.dev/) to have an overview.
+![Platform Engineering Roadmap in dark mode, showing search and the Individual Skills, Certifications, and Company Level branches](docs/images/roadmap.png)
 
-The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap), but my idea is a bit different.
+*The current desktop atlas in its default dark theme. Open a topic for key areas and learning resources.*
 
-In time, I created something similar to [roadmap.sh](https://roadmap.sh/) but for Platform Engineers.
+An opinionated, interactive learning roadmap for engineers developing platform and SRE skills, and teams building or evolving internal platforms. It covers technical foundations, certifications, organizational practices, and AI, ML, and AI agent practices for platform work.
 
-## Explore the roadmap
+## Contents
 
-The topic atlas groups the roadmap into **Individual Skills**, **Certifications**, and **Company Level**. Branch connections show categories, not prerequisites or a mandatory learning order.
+- [Quickstart](#quickstart)
+- [Why Platform Engineering Roadmap](#why-platform-engineering-roadmap)
+- [How it works](#how-it-works)
+- [Get started and configuration](#get-started-and-configuration)
+- [Features](#features)
+- [Documentation](#documentation)
+- [AI policy](#ai-policy)
+- [Contributing](#contributing)
+- [Security](#security)
+- [License](#license)
 
-Technical topics include [data services and recovery](https://platform-engineering-roadmap.mbianchi.dev/#topic=data-recovery), [platform testing](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-testing), [multi-tenancy and isolation](https://platform-engineering-roadmap.mbianchi.dev/#topic=multi-tenancy), and [AI workload infrastructure](https://platform-engineering-roadmap.mbianchi.dev/#topic=ai-workload-infrastructure). Company-level topics cover [FinOps and platform economics](https://platform-engineering-roadmap.mbianchi.dev/#topic=finops) and [platform lifecycle](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-lifecycle), alongside adoption, culture, and governance.
+## Quickstart
 
-- All topics are visible by default, with no **Show more** step. Branch headers still let you collapse and expand whole groups.
-- Search topic names, descriptions, key areas, and resource titles. Multiple search terms must all match the same topic.
-- Open a topic to read the same descriptions, key areas, and resources in a centered dialog. The roadmap stays behind a blurred backdrop, with keyboard focus inside the dialog and background scrolling paused.
-- Share the topic's URL, such as [`#topic=cloud-native`](https://platform-engineering-roadmap.mbianchi.dev/#topic=cloud-native). Browser Back and Forward preserve topic navigation. Use **Close topic**, press Escape, or click the backdrop to return to the roadmap with your search and focus restored.
-- Dark mode is the default, regardless of your device's theme. Use the moon/sun button in the header to switch modes; your choice is saved in this browser. If browser storage is blocked, switching still works for the current page but cannot persist after reloading.
+**[Explore the live roadmap](https://platform-engineering-roadmap.mbianchi.dev/)** without installing anything or creating an account. To run your own local copy, use the source setup below.
 
-## Run locally
+### Prerequisites
 
-Use Node.js 22 (the CI version) or a supported newer LTS release.
+- Git, npm, and Node.js **22.13 or newer on the 22.x line**, or a supported newer LTS release. CI uses Node.js 22.
+- A current desktop or mobile browser with JavaScript enabled and native HTML dialog support.
+
+The site is a static React/Vite application. No backend, database, account, API keys, `.env` file, or external font service is required. Node.js is only needed for development and building, not for browsing the deployed site.
+
+### First run
 
 ```bash
+git clone https://github.com/mbianchidev/platform-engineering-roadmap.git
+cd platform-engineering-roadmap
 npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite. See [CONTRIBUTING.md](CONTRIBUTING.md#development-setup) for build and test commands. The site remains a static React/Vite application; no backend, account, or external font service is required.
+Open the local URL printed by Vite, normally `http://localhost:5173`. You should see the three roadmap branches and a search field. Search for `Kubernetes` and open a topic to see its key areas and resource links.
 
-## About me 
+## Why Platform Engineering Roadmap
+
+Platform work spans technical skills and organizational practices. This atlas puts both in one place, with certifications and links to learning resources. Explore the areas relevant to your work rather than follow a mandatory learning order; it is a reference, not a course or completion tracker.
+
+The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap). In time, I created something similar to [roadmap.sh](https://roadmap.sh/) but for Platform Engineers.
+
+<details>
+<summary>About me and why I built it</summary>
 
 I have been a Platform Engineer even before the name was out there, fighting Conway Law, dealing with team topologies (yes, before the book).
 
@@ -45,20 +66,77 @@ This picture is from one of my talks, at DevOpsDay Amsterdam 2024 - Platform Eng
 
 _Note: This repo also contains a [Platform Engineering Manifesto](platform-engineering-manifesto.md) which is playfully inspired by the Agile Manifesto._
 
+</details>
+
+## How it works
+
+React renders local roadmap data into three searchable branches. Selecting a topic opens a dialog and updates the URL hash, so direct links and browser history work without server-side routes. The UI lives in [`src/components/`](src/components/), with shared theme styles in [`src/index.css`](src/index.css).
+
+## Get started and configuration
+
+Roadmap content lives in [`src/data/roadmapData.js`](src/data/roadmapData.js): sections, topics, descriptions, key areas, and resource links. Keep existing topic IDs stable because shared `#topic=...` URLs depend on them. Edit the source and rebuild to publish content changes; there is no browser-based content editor or remote content service.
+
+### Development commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start Vite's development server with live updates. |
+| `npm run build` | Build the static site into `dist/`. |
+| `npm run preview` | Serve an existing production build locally, normally at `http://localhost:4173`. |
+| `npm test` | Run the Node.js unit tests. |
+| `npm run lint` | Run ESLint. |
+| `npm run test:e2e` | Build and test desktop and mobile interactions with Playwright and Chromium. |
+
+Run `npm run build` before `npm run preview`. For browser installation, Linux system dependencies, and the E2E test server's port requirements, see the [development setup guide](CONTRIBUTING.md#development-setup).
+
+### Limitations
+
+This is a learning reference, not a learning management system or a provisioned platform. There are no accounts, completion tracking, or cross-device synchronization. The AI, ML, and agent entries are educational content, not built-in model integrations or running agents.
+
+Search and collapsed branches are page-local state, not saved preferences. The selected topic is shareable through its URL, and the theme preference is stored only in the current browser. External learning resources are maintained by their respective publishers.
+
+### Deployment
+
+Run `npm run build` and publish `dist/` to a static web host. Use `npm run preview` to inspect the build locally, not as a production server.
+
+The site is deployed to GitHub Pages from `main` by [the Pages workflow](.github/workflows/deploy.yml). Pull requests run validation without deploying. The custom domain is declared in [`public/CNAME`](public/CNAME), and [`vite.config.js`](vite.config.js) sets `base: '/'` because the site is served from the custom domain root.
+
+For your own deployment, replace or remove `public/CNAME` as appropriate. If serving under a subpath such as `/platform-engineering-roadmap/`, update Vite's `base` to match before building. Topic navigation uses URL hashes rather than server-side routes.
+
+## Features
+
+The topic atlas groups the roadmap into **Individual Skills**, **Certifications**, and **Company Level**. Branch connections show categories, not prerequisites or a mandatory learning order.
+
+Technical topics include [data services and recovery](https://platform-engineering-roadmap.mbianchi.dev/#topic=data-recovery), [platform testing](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-testing), [multi-tenancy and isolation](https://platform-engineering-roadmap.mbianchi.dev/#topic=multi-tenancy), and [AI workload infrastructure](https://platform-engineering-roadmap.mbianchi.dev/#topic=ai-workload-infrastructure). Company-level topics cover [FinOps and platform economics](https://platform-engineering-roadmap.mbianchi.dev/#topic=finops) and [platform lifecycle](https://platform-engineering-roadmap.mbianchi.dev/#topic=platform-lifecycle), alongside adoption, culture, and governance.
+
+- All topics are visible by default, with no **Show more** step. Branch headers still let you collapse and expand whole groups.
+- Search topic names, descriptions, key areas, and resource titles. Multiple search terms must all match the same topic.
+- Open a topic to read the same descriptions, key areas, and resources in a centered dialog. The roadmap stays behind a blurred backdrop, with keyboard focus inside the dialog and background scrolling paused.
+- Share the topic's URL, such as [`#topic=cloud-native`](https://platform-engineering-roadmap.mbianchi.dev/#topic=cloud-native). Browser Back and Forward preserve topic navigation. Use **Close topic**, press Escape, or click the backdrop to return to the roadmap with your search and focus restored.
+- Dark mode is the default, regardless of your device's theme. Use the moon/sun button in the header to switch modes; your choice is saved in this browser. If browser storage is blocked, switching still works for the current page but cannot persist after reloading.
+
+## Documentation
+
+See the [development and contribution guide](CONTRIBUTING.md) for setup, checks, and content changes. The [Platform Engineering Manifesto](platform-engineering-manifesto.md) describes the project's perspective.
+
+The previous README content is preserved in [LEGACY.md](LEGACY.md). New roadmap content is maintained in the interactive website's source instead.
+
+## AI policy
+
+You are responsible for everything you contribute, including AI-assisted code, documentation, and assets. Review and test your contribution. You must be able to explain what the code does and why it is needed.
+
 ## Contributing
 
-I want this roadmap to be useful to the largest amount of people and if you want to help you are very welcome. 
+I want this roadmap to be useful to the largest amount of people and if you want to help you are very welcome.
 
-Any contribution matters, may that be an input, a feedback or even a PR.
+Any contribution matters, whether that's a topic suggestion, a resource, feedback, or a PR. **No vendor pitches.**
 
-## Deployment
+Read the [contributing guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before contributing. See the [support policy](SUPPORT.md) for support expectations.
 
-The site is deployed to GitHub Pages from `main` by [the Pages workflow](.github/workflows/deploy.yml). The custom domain is declared in [`public/CNAME`](public/CNAME), and Vite builds root-relative asset URLs because the site is served from the custom domain root.
+## Security
+
+Use the private reporting contact in the [security policy](SECURITY.md) for vulnerabilities, not public issues.
 
 ## License
 
-Usual MIT, we love that.
-
-## Note
-
-The previous readme content can be found in [LEGACY.md](LEGACY.md) all new updates will be in the interactive website instead.
+Usual [MIT](LICENSE), we love that.
