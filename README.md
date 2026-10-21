@@ -1,12 +1,10 @@
 # Platform Engineering Roadmap
 
-An opinionated roadmap to become a Platform Engineer, including AI, ML, and AI agent practices for SRE and platform work.
+An opinionated, interactive learning roadmap for engineers developing platform and SRE skills, and teams building or evolving internal platforms. It covers technical foundations, certifications, organizational practices, and AI, ML, and AI agent practices for platform work.
 
-Visit [https://platform-engineering-roadmap.mbianchi.dev/](https://platform-engineering-roadmap.mbianchi.dev/) to have an overview.
+**[Explore the live roadmap](https://platform-engineering-roadmap.mbianchi.dev/)**. No installation or account is needed to browse it.
 
-The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap), but my idea is a bit different.
-
-In time, I created something similar to [roadmap.sh](https://roadmap.sh/) but for Platform Engineers.
+The roadmap is inspired by [Teivah's SRE roadmap](https://github.com/teivah/sre-roadmap). In time, I created something similar to [roadmap.sh](https://roadmap.sh/) but for Platform Engineers.
 
 ## Explore the roadmap
 
@@ -22,16 +20,58 @@ Technical topics include [data services and recovery](https://platform-engineeri
 
 ## Run locally
 
-Use Node.js 22 (the CI version) or a supported newer LTS release.
+### Prerequisites
+
+- Git, npm, and Node.js **22.13 or newer on the 22.x line**, or a supported newer LTS release. CI uses Node.js 22.
+- A current desktop or mobile browser with JavaScript enabled and native HTML dialog support.
+
+The site is a static React/Vite application. No backend, database, account, API keys, `.env` file, or external font service is required. Node.js is only needed for development and building, not for browsing the deployed site.
+
+### First run
 
 ```bash
+git clone https://github.com/mbianchidev/platform-engineering-roadmap.git
+cd platform-engineering-roadmap
 npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite. See [CONTRIBUTING.md](CONTRIBUTING.md#development-setup) for build and test commands. The site remains a static React/Vite application; no backend, account, or external font service is required.
+Open the local URL printed by Vite, normally `http://localhost:5173`. You should see the three roadmap branches and a search field. Search for `Kubernetes` and open a topic to see its key areas and resource links.
 
-## About me 
+### Development commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start Vite's development server with live updates. |
+| `npm run build` | Build the static site into `dist/`. |
+| `npm run preview` | Serve an existing production build locally, normally at `http://localhost:4173`. |
+| `npm test` | Run the Node.js unit tests. |
+| `npm run lint` | Run ESLint. |
+| `npm run test:e2e` | Build and test desktop and mobile interactions with Playwright and Chromium. |
+
+Run `npm run build` before `npm run preview`. For browser installation, Linux system dependencies, and the E2E test server's port requirements, see the [development setup guide](CONTRIBUTING.md#development-setup).
+
+## Content and configuration
+
+Roadmap content lives in [`src/data/roadmapData.js`](src/data/roadmapData.js): sections, topics, descriptions, key areas, and resource links. Keep existing topic IDs stable because shared `#topic=...` URLs depend on them. Edit the source and rebuild to publish content changes; there is no browser-based content editor or remote content service.
+
+The UI lives in [`src/components/`](src/components/), with shared theme styles in [`src/index.css`](src/index.css). Hosting configuration is described below.
+
+## Limitations
+
+This is a learning reference, not a learning management system or a provisioned platform. There are no accounts, completion tracking, or cross-device synchronization. The AI, ML, and agent entries are educational content, not built-in model integrations or running agents.
+
+Search and collapsed branches are page-local state, not saved preferences. The selected topic is shareable through its URL, and the theme preference is stored only in the current browser. External learning resources are maintained by their respective publishers.
+
+## Deployment
+
+Run `npm run build` and publish `dist/` to a static web host. Use `npm run preview` to inspect the build locally, not as a production server.
+
+The site is deployed to GitHub Pages from `main` by [the Pages workflow](.github/workflows/deploy.yml). Pull requests run validation without deploying. The custom domain is declared in [`public/CNAME`](public/CNAME), and [`vite.config.js`](vite.config.js) sets `base: '/'` because the site is served from the custom domain root.
+
+For your own deployment, replace or remove `public/CNAME` as appropriate. If serving under a subpath such as `/platform-engineering-roadmap/`, update Vite's `base` to match before building. Topic navigation uses URL hashes rather than server-side routes.
+
+## About me
 
 I have been a Platform Engineer even before the name was out there, fighting Conway Law, dealing with team topologies (yes, before the book).
 
@@ -47,18 +87,16 @@ _Note: This repo also contains a [Platform Engineering Manifesto](platform-engin
 
 ## Contributing
 
-I want this roadmap to be useful to the largest amount of people and if you want to help you are very welcome. 
+I want this roadmap to be useful to the largest amount of people and if you want to help you are very welcome.
 
-Any contribution matters, may that be an input, a feedback or even a PR.
+Any contribution matters, whether that's a topic suggestion, a resource, feedback, or a PR. **No vendor pitches.**
 
-## Deployment
-
-The site is deployed to GitHub Pages from `main` by [the Pages workflow](.github/workflows/deploy.yml). The custom domain is declared in [`public/CNAME`](public/CNAME), and Vite builds root-relative asset URLs because the site is served from the custom domain root.
+Read the [contributing guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before contributing. See the [security policy](SECURITY.md) for private vulnerability reports and the [support policy](SUPPORT.md) for support expectations.
 
 ## License
 
-Usual MIT, we love that.
+Usual [MIT](LICENSE), we love that.
 
-## Note
+## Legacy roadmap
 
-The previous readme content can be found in [LEGACY.md](LEGACY.md) all new updates will be in the interactive website instead.
+The previous README content is preserved in [LEGACY.md](LEGACY.md). New roadmap content is maintained in the interactive website's source instead.
