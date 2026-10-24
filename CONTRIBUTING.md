@@ -61,13 +61,15 @@ npm run lint
 npm test
 
 # Install the browser once, then run desktop and mobile interaction tests
-npx playwright install chromium
+npx playwright install --only-shell chromium
 npm run test:e2e
 ```
 
-The browser tests build the production site and serve it on `127.0.0.1:4179`; that port must be free. On Linux, use `npx playwright install --with-deps chromium` if browser system dependencies are missing. Test output is written to the ignored `test-results/` directory.
+The browser tests build the production site and serve it on `127.0.0.1:4179`; that port must be free. They run headlessly, so only Chromium's headless shell is needed. On Linux, use `npx playwright install --with-deps --only-shell chromium` if browser system dependencies are missing. For headed debugging, install the full browser with `npx playwright install chromium`. Test output is written to the ignored `test-results/` directory.
 
 Roadmap content lives in `src/data/roadmapData.js`. Keep topic IDs stable because shared topic URLs use them. The atlas searches existing content without changing it, and its branch lines represent categories rather than prerequisites.
+
+Pull requests run all checks, including on documentation-only changes. New commits cancel obsolete Pages validation and CodeQL runs for the same pull request, without blocking or canceling other pull requests or production deployments. Push and manual Pages deployments remain serialized and non-interruptible. Push and scheduled CodeQL scans remain independent and analyze both configured languages.
 
 ## Code Style
 
