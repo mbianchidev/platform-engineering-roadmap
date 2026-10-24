@@ -38,7 +38,9 @@ Found a bug or something that doesn't work as expected?
 
 ## Development Setup
 
-Use Node.js 22 (the CI version) or a supported newer LTS release.
+Use Node.js 26.12.1, the current stable release pinned in `.nvmrc` and used by CI. Node.js 22.13+ on the 22.x line or a supported newer LTS release also meets the toolchain's minimum requirements.
+
+With [nvm](https://github.com/nvm-sh/nvm) installed, run `nvm install && nvm use` from the repository root to select the pinned version.
 
 ```bash
 # Clone the repository
