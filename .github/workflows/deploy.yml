@@ -16,11 +16,11 @@ on:
 permissions:
   contents: read
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# PR validation must not queue behind or cancel production deployments.
+# Production deployments remain serialized and are never interrupted.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.event.pull_request.number) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   # Build job
@@ -46,7 +46,7 @@ jobs:
         run: npm run lint
 
       - name: Install browser for interaction tests
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps --only-shell chromium
 
       - name: Build and test desktop and mobile interactions
         run: npm run test:e2e
