@@ -29,7 +29,7 @@ An opinionated, interactive learning roadmap for engineers developing platform a
 
 ### Prerequisites
 
-- Git, npm, and Node.js **22.13 or newer on the 22.x line**, or a supported newer LTS release. CI uses Node.js 22.
+- Git, npm, and Node.js **26.12.1**, the current stable release pinned in [`.nvmrc`](.nvmrc) and used by CI. Node.js 22.13+ on the 22.x line or a supported newer LTS release also meets the toolchain's minimum requirements.
 - A current desktop or mobile browser with JavaScript enabled and native HTML dialog support.
 
 The site is a static React/Vite application. No backend, database, account, API keys, `.env` file, or external font service is required. Node.js is only needed for development and building, not for browsing the deployed site.
